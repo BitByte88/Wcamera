@@ -202,7 +202,8 @@ $('#registPhoto').click(function() {
     });
 });
 
-const medias = {audio : false, video : {facingMode : {exact: "environment"}}},
+<!-- const medias = {audio : false, video : {facingMode : {exact: "environment"}}}, -->
+const medias = {audio : false, video : {facingMode : "environment"}},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
       ctx    = canvas.getContext("2d");
