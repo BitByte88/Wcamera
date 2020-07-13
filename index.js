@@ -67,14 +67,9 @@ $(document).on('click', '[data-transition-id]', function() {
             .then(function(stream) {
               video.srcObject = stream;
               video.onloadedmetadata = function() {
-                <!--
                 var ratio = $(window).width() / video.videoWidth;
                 video.width = $(window).width();
                 video.height = video.videoHeight * ratio;
-                -->
-                var ratio = video.videoWidth / video.videoHeight;
-                video.width =  $(window).width();
-                video.height =  $(window).height();
                 canvas.width = video.width;
                 canvas.height = video.height;
                 $('#takePhoto').show();
