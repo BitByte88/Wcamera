@@ -67,10 +67,7 @@ $(document).on('click', '[data-transition-id]', function() {
             .then(function(stream) {
               video.srcObject = stream;
               video.onloadedmetadata = function() {
-              alert("window.width : " +  $(window).width());
-              alert("window.height : " +  $(window).height());
-              alert("document.width : " +  $(document).width());
-              alert("document.height : " +  $(document).height());
+
               alert("video.videoWidth : " + video.videoWidth);
               alert("video.videoHeight : " + video.videoHeight);
                 var ratio = $(window).width() / video.videoWidth;
