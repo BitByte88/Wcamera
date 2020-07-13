@@ -221,7 +221,7 @@ $(document).on('click', '[data-transition-id]', function() {
                 canvas.height = video.height;
                 $('#takePhoto').show();
               };
-              $('#V-NEW-1').closest('section').hide();
+              <!--$('#V-NEW-1').closest('section').hide();-->
               $('#' + dest).show("slide", { direction: "right"}, 200);
             }).catch(function(err) {
               alert(err);
