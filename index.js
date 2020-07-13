@@ -69,7 +69,8 @@ $(document).on('click', '[data-transition-id]', function() {
               video.onloadedmetadata = function() {
                 var ratio = $(window).width() / video.videoWidth;
                 video.width = $(window).width();
-                video.height = video.videoHeight * ratio;
+                <!--video.height = video.videoHeight * ratio;-->
+                video.height = video.videoHeight;
                 canvas.width = video.width;
                 canvas.height = video.height;
                 $('#takePhoto').show();
@@ -202,7 +203,7 @@ $('#registPhoto').click(function() {
     });
 });
 
-<!-- const medias = {audio : false, video : {facingMode : {exact: "environment"}}}, -->
+<!-- const medias = {audio : false, video : {facingMode : {exact: "environment"}}}, 携帯デバイスのみにする-->
 const medias = {audio : false, video : {facingMode : "environment"}},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
