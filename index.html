@@ -7,9 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 
-<title>WebRTC</title>
+<title>TORESYS 3D for trittschaum</title>
 
-<meta name="title" content="">
+<meta name="title" content="TORESYS 3D for trittschaum">
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta property="og:title" content="">
@@ -145,6 +145,7 @@ main {
 <script src="./common/js/app.js"></script>
 
 <script>
+<!--
 var app = new App();
 var isAssistEnabled;
 var authKey = localStorage.authKey;
@@ -165,7 +166,7 @@ if (organization.length >16) {
 }
 $(".orgName").html(organization);
 $(".usrName").html((userName) + '様');
-
+-->
 //$('.drawer').drawer();
 objectFitImages( '.thumbnailList img' );
 
@@ -180,7 +181,7 @@ if (localStorage.assistCheck && localStorage.assistCheck == "false") {
     localStorage.assistCheck = "true";
 }
 $('#assistCheck').closest('.assistCheckWrapper').show();
-
+<!--
 $('#logout').click(function() {
     // ログアウトAPI
     app.logout(authKey).then(function(res) {
@@ -203,6 +204,7 @@ $('#logout').click(function() {
         return false;
     });
 });
+-->
 $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
     if (dest == 'V-NEW-2') {
