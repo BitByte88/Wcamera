@@ -209,7 +209,7 @@ $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
     if (dest == 'V-NEW-2') {
       if (!video.srcObject) {
-        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        if (navigator.mediaDevices.getUserMedia) {
           navigator.mediaDevices.getUserMedia(medias)
             .then(function(stream) {
               video.srcObject = stream;
@@ -221,7 +221,7 @@ $(document).on('click', '[data-transition-id]', function() {
                 canvas.height = video.height;
                 $('#takePhoto').show();
               };
-              <!--$('#V-NEW-1').closest('section').hide();-->
+              $('#V-NEW-1').closest('section').hide();
               $('#' + dest).show("slide", { direction: "right"}, 200);
             }).catch(function(err) {
               alert(err);
