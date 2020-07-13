@@ -73,8 +73,8 @@ $(document).on('click', '[data-transition-id]', function() {
                 video.height = video.videoHeight * ratio;
                 -->
                 var ratio = video.videoWidth / video.videoHeight;
-                video.width = video.videoWidth;
-                video.height = video.videoHeight;
+                video.width =  $(window).width();
+                video.height =  $(window).height();
                 canvas.width = video.width;
                 canvas.height = video.height;
                 $('#takePhoto').show();
