@@ -99,7 +99,10 @@ $(document).on('click', '[data-transition-id]', function() {
       updateMetaViewport();
       isAssistEnabled = !isPhotoRegistered() && $('#assistCheck').prop('checked');
       if (isAssistEnabled) {
+          <!--郭
           showAssist(0);
+          -->
+          showAssist(4);
       } else {
           hideAssist();
       }
@@ -204,7 +207,7 @@ $('#registPhoto').click(function() {
     });
 });
 
-<!--郭 const medias = {audio : false, video : {facingMode : {exact: "environment"}}}, 携帯デバイスのみにする-->
+<!--郭  const medias = {audio : false, video : {facingMode : {exact: "environment"}}}, 携帯デバイスのみにする -->
 const medias = {audio : false, video : {facingMode : "environment"}},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
@@ -227,7 +230,10 @@ $('#takePhoto').click(function() {
         //$('#V-NEW-1 .btViewPhoto, #V-NEW-1 .btRegistPhoto').closest('li').css('display', 'block');
         $('#V-NEW-1 .btViewPhoto').closest('li').css('display', 'block');
         if (isAssistEnabled) {
+        	<!--郭
             showAssist($('#V-NEW-2 .results ul li').length);
+            -->
+            showAssist(4);
         }
     });
     img.setAttribute('src', dataURL);
@@ -285,12 +291,16 @@ function isPhotoRegistered() {
     return $('#V-NEW-2 .results ul li').length > 0;
 }
 function showAssist(i) {
+	<!--郭
     if (i < 11) {
         $('#V-NEW-2 .assistWrapper span').text((i + 1) + '/11');
         $('#V-NEW-2 .assistWrapper').attr('data-index', i).show();
     } else {
         hideAssist();
     }
+    -->
+    $('#V-NEW-2 .assistWrapper').attr('data-index', i).show();
+
 }
 function hideAssist() {
     $('#V-NEW-2 .assistWrapper').removeAttr('data-index');
