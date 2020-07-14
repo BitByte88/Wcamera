@@ -1,25 +1,27 @@
 <!--郭
-var app = new App();
-var isAssistEnabled;
-var authKey = localStorage.authKey;
-
-// ヘッダー情報取得
-localStorage.organization = "テスト企業";
-localStorage.userName = "テストユーザ";
-if (!localStorage.organization || !localStorage.userName) {
-    location.href = "login.html";
-}
-var organization = localStorage.organization;
-var userName = localStorage.userName;
-if (userName.length >10) {
-    userName = userName.substring(0, 10) + '...';
-}
-if (organization.length >16) {
-    organization = organization.substring(0, 16) + '...';
-}
-$(".orgName").html(organization);
-$(".usrName").html((userName) + '様');
+//var app = new App();
+//var isAssistEnabled;
+//var authKey = localStorage.authKey;
+//
+//// ヘッダー情報取得
+//localStorage.organization = "テスト企業";
+//localStorage.userName = "テストユーザ";
+//if (!localStorage.organization || !localStorage.userName) {
+//    location.href = "login.html";
+//}
+//var organization = localStorage.organization;
+//var userName = localStorage.userName;
+//if (userName.length >10) {
+//    userName = userName.substring(0, 10) + '...';
+//}
+//if (organization.length >16) {
+//    organization = organization.substring(0, 16) + '...';
+//}
+//$(".orgName").html(organization);
+//$(".usrName").html((userName) + '様');
 -->
+var isAssistEnabled;
+
 //$('.drawer').drawer();
 objectFitImages( '.thumbnailList img' );
 
@@ -35,28 +37,28 @@ if (localStorage.assistCheck && localStorage.assistCheck == "false") {
 }
 $('#assistCheck').closest('.assistCheckWrapper').show();
 <!--郭
-$('#logout').click(function() {
-    // ログアウトAPI
-    app.logout(authKey).then(function(res) {
-        localStorage.removeItem('userName');
-        localStorage.removeItem('organization');
-        localStorage.removeItem('targetJobId');
-        sessionStorage.clear();
-        location.href = "login.html";
-    }).catch(function() {
-        alert("予期しないエラーが発生しました。\nログインからやり直してください。");
-        localStorage.removeItem('userName');
-        localStorage.removeItem('organization');
-        localStorage.removeItem('targetJobId');
-        localStorage.removeItem('autoLogin');
-        sessionStorage.clear();
-        location.href = "login.html";
-        return false;
-    }).then(function() {
-        app.hideLoading();
-        return false;
-    });
-});
+//$('#logout').click(function() {
+//    // ログアウトAPI
+//    app.logout(authKey).then(function(res) {
+//        localStorage.removeItem('userName');
+//        localStorage.removeItem('organization');
+//        localStorage.removeItem('targetJobId');
+//        sessionStorage.clear();
+//        location.href = "login.html";
+//    }).catch(function() {
+//        alert("予期しないエラーが発生しました。\nログインからやり直してください。");
+//        localStorage.removeItem('userName');
+//        localStorage.removeItem('organization');
+//        localStorage.removeItem('targetJobId');
+//        localStorage.removeItem('autoLogin');
+//        sessionStorage.clear();
+//        location.href = "login.html";
+//        return false;
+//    }).then(function() {
+//        app.hideLoading();
+//        return false;
+//    });
+//});
 -->
 $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
@@ -95,12 +97,14 @@ $(document).on('click', '[data-transition-id]', function() {
         $('#V-NEW-1').closest('section').hide();
         $('#' + dest).show("slide", { direction: "right"}, 200);
       }
-      $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
+      <!--郭
+//      $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
+      -->
       updateMetaViewport();
       isAssistEnabled = !isPhotoRegistered() && $('#assistCheck').prop('checked');
       if (isAssistEnabled) {
           <!--郭
-          showAssist(0);
+//          showAssist(0);
           -->
           showAssist(4);
       } else {
@@ -226,12 +230,14 @@ $('#takePhoto').click(function() {
     $(img).on('load', function() {
         var $result = $('<li></li>');
         $('#V-NEW-2 .results ul').prepend($result.append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('data-img-id', imgIdIdx++)));
-        $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
+        <!--郭
+//        $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
+        -->
         //$('#V-NEW-1 .btViewPhoto, #V-NEW-1 .btRegistPhoto').closest('li').css('display', 'block');
         $('#V-NEW-1 .btViewPhoto').closest('li').css('display', 'block');
         if (isAssistEnabled) {
         	<!--郭
-            showAssist($('#V-NEW-2 .results ul li').length);
+//            showAssist($('#V-NEW-2 .results ul li').length);
             -->
             showAssist(4);
         }
@@ -292,16 +298,16 @@ function isPhotoRegistered() {
 }
 function showAssist(i) {
 	<!--郭
-    if (i < 11) {
-        $('#V-NEW-2 .assistWrapper span').text((i + 1) + '/11');
-        $('#V-NEW-2 .assistWrapper').attr('data-index', i).show();
-    } else {
-        hideAssist();
-    }
+//    if (i < 11) {
+//        $('#V-NEW-2 .assistWrapper span').text((i + 1) + '/11');
+//        $('#V-NEW-2 .assistWrapper').attr('data-index', i).show();
+//    } else {
+//        hideAssist();
+//    }
     -->
     $('#V-NEW-2 .assistWrapper').attr('data-index', i).show();
-
 }
+
 function hideAssist() {
     $('#V-NEW-2 .assistWrapper').removeAttr('data-index');
     $('#V-NEW-2 .assistWrapper').hide();
