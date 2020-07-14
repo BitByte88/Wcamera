@@ -241,13 +241,13 @@ $('#takePhoto').click(function() {
 //    });
 //    img.setAttribute('src', dataURL);
     -->
+    var dest = $(this).data('transition-id');
     $(img).on('load', function() {
         $('#V-NEW-3 .output').append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img));
+            $('#V-NEW-2').closest('section').hide();
+            $('#' + dest).show("slide", { direction: "right"}, 200);
     });
     img.setAttribute('src', dataURL);
-    $('#V-NEW-2').closest('section').hide();
-    var dest = $(this).data('transition-id');
-    $('#' + dest).show("slide", { direction: "right"}, 200);
 });
 
 $(document).on('click', '#V-NEW-3 .thumbnails img', function() {
