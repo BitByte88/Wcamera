@@ -222,27 +222,31 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-var imgIdIdx = 0;
+<!-- 郭
+//var imgIdIdx = 0;
+-->
 $('#takePhoto').click(function() {
     var dataURL = canvas.toDataURL('image/jpeg');
     var img = document.createElement('img');
     var blob = base64ToFile(dataURL);
-    $(img).on('load', function() {
-        var $result = $('<li></li>');
-        $('#V-NEW-2 .results ul').prepend($result.append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('data-img-id', imgIdIdx++)));
-        <!--郭
+    <!-- 郭
+//    $(img).on('load', function() {
+//        var $result = $('<li></li>');
+//        $('#V-NEW-2 .results ul').prepend($result.append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('data-img-id', imgIdIdx++)));
 //        $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
-        -->
-        //$('#V-NEW-1 .btViewPhoto, #V-NEW-1 .btRegistPhoto').closest('li').css('display', 'block');
-        $('#V-NEW-1 .btViewPhoto').closest('li').css('display', 'block');
-        if (isAssistEnabled) {
-        	<!--郭
+//        $('#V-NEW-1 .btViewPhoto').closest('li').css('display', 'block');
+//        if (isAssistEnabled) {
 //            showAssist($('#V-NEW-2 .results ul li').length);
-            -->
-            showAssist(4);
-        }
-    });
-    img.setAttribute('src', dataURL);
+//        }
+//    });
+//    img.setAttribute('src', dataURL);
+    -->
+    $(img).on('load', function() {
+        $('#V-NEW-3 .output').append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('src', dataURL));
+    }
+    $('#V-NEW-2').closest('section').hide();
+    var dest = $(this).data('transition-id');
+    $('#' + dest).show("slide", { direction: "right"}, 200);
 });
 
 $(document).on('click', '#V-NEW-3 .thumbnails img', function() {

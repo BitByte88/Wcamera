@@ -92,7 +92,7 @@ main {
     </section>
     <section id="V-NEW-2">
         <video id="video" autoplay="autoplay" playsinline="playsinline"></video>
-        <div class="control"><div id="takePhoto"><!--撮影ボタン--></div></div>
+        <div class="control"><div id="takePhoto" data-transition-id="V-NEW-3"><!--撮影ボタン--></div></div>
         <canvas id="canvas"></canvas>
         <!--郭 <div class="assistWrapper"><span></span></div> -->
         <div class="assistWrapper"></div>
@@ -106,6 +106,16 @@ main {
         </ul>
     </section>
 
+    <section id="V-NEW-3">
+        <div class="output">
+        </div>
+        <ul class="bottomBt">
+            <li><a href="#" class="btRecapture" data-transition-id="V-NEW-2">再撮影</a></li>
+            <li><a href="#" class="btFinish" data-transition-id="V-NEW-1">画像登録</a></li>
+        </ul>
+    </section>
+
+    <!--郭
     <section id="V-NEW-3" class="thumbnailList">
         <ul class="thumbnails">
         </ul>
@@ -121,6 +131,7 @@ main {
             <li><a href="#" class="btRemove">削除</a></li>
         </ul>
     </section>
+    -->
 </main>
 
 </div><!--/.wrapper-->
