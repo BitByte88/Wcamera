@@ -60,6 +60,7 @@ $('#logout').click(function() {
 -->
 $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
+    <!-- 撮影するボタン押下 -->
     if (dest == 'V-NEW-2') {
       if (!video.srcObject) {
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -104,6 +105,7 @@ $(document).on('click', '[data-transition-id]', function() {
       }
     } else {
       resetMetaViewport();
+      <!-- 撮影した写真を見るボタン、戻るボタン押下 -->
       if (dest == 'V-NEW-3') {
         $('#V-NEW-3 ul.thumbnails').empty();
         $('#V-NEW-2 .results img').each(function() {
