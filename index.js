@@ -275,7 +275,7 @@ $('#takePhoto').click(function() {
 //            $('.btBack[data-transition-id="V-NEW-3"]').click();
 //        }
 //    }
-});
+//});
     -->
 
 $('#V-NEW-3 .btRetake').click(function() {
