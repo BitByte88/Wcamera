@@ -67,19 +67,11 @@ $(document).on('click', '[data-transition-id]', function() {
             .then(function(stream) {
               video.srcObject = stream;
               video.onloadedmetadata = function() {
-              <!--
                 var ratio = $(window).width() / video.videoWidth;
                 video.width = $(window).width();
                 video.height = video.videoHeight * ratio;
                 canvas.width = video.width;
-                canvas.height = video.height;
-                -->
-                var ratio = $(window).height() / video.videoHeight;
-                video.height = $(window).height();
-                video.width = video.videoWidth * ratio;
-                canvas.width = video.width;
-                canvas.height = video.height;
-                
+                canvas.height = video.height;                
                 $('#takePhoto').show();
               };
               $('#V-NEW-1').closest('section').hide();
