@@ -222,9 +222,7 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-<!-- 郭
-//var imgIdIdx = 0;
--->
+var imgIdIdx = 0;
 $('#takePhoto').click(function() {
     var dataURL = canvas.toDataURL('image/jpeg');
     var img = document.createElement('img');
@@ -243,40 +241,50 @@ $('#takePhoto').click(function() {
     -->
     var dest = $(this).data('transition-id');
     $(img).on('load', function() {
-        $('#V-NEW-3 .output').append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img));
-            $('#V-NEW-2').closest('section').hide();
-            $('#' + dest).show("slide", { direction: "right"}, 200);
+        $('#V-NEW-3 .output').append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('data-img-id', imgIdIdx++));
+        $('#V-NEW-2').closest('section').hide();
+        $('#' + dest).show("slide", { direction: "right"}, 200);
     });
     img.setAttribute('src', dataURL);
 });
 
-$(document).on('click', '#V-NEW-3 .thumbnails img', function() {
-    $('#V-NEW-4 .thumbnailDetail').empty();
-    var img = document.createElement('img');
-    var imgId = $(this).attr('data-img-id');
-    $(img).on('load', function() {
-        $('#V-NEW-4 .thumbnailDetail').append($(img).attr('data-img-id', imgId));
-        $('#V-NEW-3').closest('section').hide();
-        $('#V-NEW-4').show("slide", { direction: "right"}, 200);
-    });
-    img.setAttribute('src', $(this).attr('src'));
+    <!-- 郭
+//$(document).on('click', '#V-NEW-3 .thumbnails img', function() {
+//    $('#V-NEW-4 .thumbnailDetail').empty();
+//    var img = document.createElement('img');
+//    var imgId = $(this).attr('data-img-id');
+//    $(img).on('load', function() {
+//        $('#V-NEW-4 .thumbnailDetail').append($(img).attr('data-img-id', imgId));
+//        $('#V-NEW-3').closest('section').hide();
+//        $('#V-NEW-4').show("slide", { direction: "right"}, 200);
+//    });
+//    img.setAttribute('src', $(this).attr('src'));
+//});
+//
+//$('#V-NEW-4 .btRemove').click(function() {
+//    if (confirm('この画像を削除します。よろしいですか？')) {
+//        var imgId = $('#V-NEW-4 .thumbnailDetail img').attr('data-img-id');
+//        $('#V-NEW-2 img[data-img-id=' + imgId + ']').closest('li').remove();
+//        $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('li').remove();
+//        if ($('#V-NEW-3 ul.thumbnails li').length == 0) {
+//            $('#V-NEW-1 .btViewPhoto, #V-NEW-1 .btRegistPhoto').closest('li').css('display', 'none');
+//            $('.btBack[data-transition-id="V-NEW-3"]').attr('data-transition-id', 'V-NEW-1');
+//            $('.btBack[data-transition-id="V-NEW-1"]').click();
+//            $('.btBack[data-transition-id="V-NEW-1"]').attr('data-transition-id', 'V-NEW-3');
+//        } else {
+//            $('.btBack[data-transition-id="V-NEW-3"]').click();
+//        }
+//    }
+});
+    -->
+
+$('#V-NEW-3 .btRetake').click(function() {
+    var imgId = $('#V-NEW-3 .output img').attr('data-img-id');
+    $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('img').remove();
+    $('#V-NEW-3').closest('section').hide();
+    $('#V-NEW-2').show("slide", { direction: "right"}, 200);
 });
 
-$('#V-NEW-4 .btRemove').click(function() {
-    if (confirm('この画像を削除します。よろしいですか？')) {
-        var imgId = $('#V-NEW-4 .thumbnailDetail img').attr('data-img-id');
-        $('#V-NEW-2 img[data-img-id=' + imgId + ']').closest('li').remove();
-        $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('li').remove();
-        if ($('#V-NEW-3 ul.thumbnails li').length == 0) {
-            $('#V-NEW-1 .btViewPhoto, #V-NEW-1 .btRegistPhoto').closest('li').css('display', 'none');
-            $('.btBack[data-transition-id="V-NEW-3"]').attr('data-transition-id', 'V-NEW-1');
-            $('.btBack[data-transition-id="V-NEW-1"]').click();
-            $('.btBack[data-transition-id="V-NEW-1"]').attr('data-transition-id', 'V-NEW-3');
-        } else {
-            $('.btBack[data-transition-id="V-NEW-3"]').click();
-        }
-    }
-});
 function updateMetaViewport() {
     $('header').hide();
     var ua = navigator.userAgent.toLowerCase();

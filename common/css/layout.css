@@ -871,7 +871,10 @@ main h3 {
   object-position: 50% 50%
 }
 
+/*郭
 .thumbnailDetail {
+*/
+.output {
   width: 100%;
   text-align: center
 }
