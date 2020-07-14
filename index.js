@@ -241,7 +241,7 @@ $('#takePhoto').click(function() {
 //    });
 //    img.setAttribute('src', dataURL);
     -->
-    $(document).on('click', '#takePhoto' function() {
+    $(document).on('click', '#V-NEW-2 .control #takePhoto' function() {
         $('#V-NEW-3 .output').append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('src', dataURL));
     });
     $('#V-NEW-2').closest('section').hide();
