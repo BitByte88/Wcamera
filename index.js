@@ -83,10 +83,7 @@ $(document).on('click', '[data-transition-id]', function() {
               $('#V-NEW-1').show();
               return false;
             });
-          <!--郭
           requestAnimationFrame(draw);
-          -->
-          draw();
         } else {
           alert("navigator.mediaDevices not supported");
           $('#V-NEW-1').closest('section').hide();
@@ -213,9 +210,7 @@ const medias = {audio : false, video : {facingMode : "environment"}},
 
 function draw() {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    <!--郭
     requestAnimationFrame(draw);
-    -->
 }
 
 var imgIdIdx = 0;
