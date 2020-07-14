@@ -243,7 +243,7 @@ $('#takePhoto').click(function() {
     -->
     $(img).on('load', function() {
         $('#V-NEW-3 .output').append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('src', dataURL));
-    }
+    });
     $('#V-NEW-2').closest('section').hide();
     var dest = $(this).data('transition-id');
     $('#' + dest).show("slide", { direction: "right"}, 200);
