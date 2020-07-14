@@ -1079,9 +1079,9 @@ main h3 {
   display: none;
   position: absolute;
   box-sizing: border-box;
-  <!-- 郭
-  border: 1vw solid yellow;
-  -->
+  /*郭
+   * border: 1vw solid yellow;
+   */
   border: 1vw dashed white;
   z-index: 98;
   pointer-events: none
