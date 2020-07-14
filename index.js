@@ -1,4 +1,4 @@
-<!--
+<!--郭
 var app = new App();
 var isAssistEnabled;
 var authKey = localStorage.authKey;
@@ -34,7 +34,7 @@ if (localStorage.assistCheck && localStorage.assistCheck == "false") {
     localStorage.assistCheck = "true";
 }
 $('#assistCheck').closest('.assistCheckWrapper').show();
-<!--
+<!--郭
 $('#logout').click(function() {
     // ログアウトAPI
     app.logout(authKey).then(function(res) {
@@ -83,7 +83,10 @@ $(document).on('click', '[data-transition-id]', function() {
               $('#V-NEW-1').show();
               return false;
             });
+          <!--郭
           requestAnimationFrame(draw);
+          -->
+          draw();
         } else {
           alert("navigator.mediaDevices not supported");
           $('#V-NEW-1').closest('section').hide();
@@ -202,7 +205,7 @@ $('#registPhoto').click(function() {
     });
 });
 
-<!-- const medias = {audio : false, video : {facingMode : {exact: "environment"}}}, 携帯デバイスのみにする-->
+<!--郭 const medias = {audio : false, video : {facingMode : {exact: "environment"}}}, 携帯デバイスのみにする-->
 const medias = {audio : false, video : {facingMode : "environment"}},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
@@ -210,7 +213,9 @@ const medias = {audio : false, video : {facingMode : "environment"}},
 
 function draw() {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    <!--郭
     requestAnimationFrame(draw);
+    -->
 }
 
 var imgIdIdx = 0;
