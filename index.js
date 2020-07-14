@@ -241,9 +241,10 @@ $('#takePhoto').click(function() {
 //    });
 //    img.setAttribute('src', dataURL);
     -->
-    $(document).on('click', '#V-NEW-2 .control #takePhoto' function() {
-        $('#V-NEW-3 .output').append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('src', dataURL));
+    $(img).on('load', function() {
+        $('#V-NEW-3 .output').append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img));
     });
+    img.setAttribute('src', dataURL);
     $('#V-NEW-2').closest('section').hide();
     var dest = $(this).data('transition-id');
     $('#' + dest).show("slide", { direction: "right"}, 200);
