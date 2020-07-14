@@ -72,6 +72,11 @@ $(document).on('click', '[data-transition-id]', function() {
                 video.height = video.videoHeight * ratio;
                 canvas.width = video.width;
                 canvas.height = video.height;
+                alert(ratio);
+                alert(video.width);
+                alert(video.height);
+                alert(canvas.width);
+                alert(canvas.height);
                 $('#takePhoto').show();
               };
               $('#V-NEW-1').closest('section').hide();
