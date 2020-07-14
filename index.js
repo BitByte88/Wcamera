@@ -241,12 +241,12 @@ $('#takePhoto').click(function() {
     -->
     var dest = $(this).data('transition-id');
     $(img).on('load', function() {
-        $('#V-NEW-3 .output').append($(img).attr('data-img-id', imgIdIdx++));
+        $('#V-NEW-3 .output').append($(img).attr('longdesc':"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++));
         $('#V-NEW-2').closest('section').hide();
         $('#' + dest).show("slide", { direction: "right"}, 200);
     });
     img.setAttribute('src', dataURL);
-    img.setAttribute('longdesc', "w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size));
+//    img.setAttribute('longdesc', "w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size));
 });
 
     <!-- 郭
