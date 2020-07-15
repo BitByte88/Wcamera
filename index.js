@@ -112,13 +112,12 @@ $(document).on('click', '[data-transition-id]', function() {
       }
     } else {
       resetMetaViewport();
-      <!-- 撮影した写真を見るボタン、戻るボタン押下 -->
       if (dest == 'V-NEW-3') {
-        $('#V-NEW-3 ul.thumbnails').empty();
-        $('#V-NEW-2 .results img').each(function() {
-          var $img = $('<img></img>').attr('src', $(this).attr('src')).attr('data-img-id', $(this).attr('data-img-id'));
-          $('#V-NEW-3 ul.thumbnails').append($('<li></li>').append($img));
-        });
+//        $('#V-NEW-3 ul.thumbnails').empty();
+//        $('#V-NEW-2 .results img').each(function() {
+//          var $img = $('<img></img>').attr('src', $(this).attr('src')).attr('data-img-id', $(this).attr('data-img-id'));
+//          $('#V-NEW-3 ul.thumbnails').append($('<li></li>').append($img));
+//        });
       } else if (dest == 'V-NEW-1') {
         if (isPhotoRegistered()) {
           $('.assistCheckWrapper').hide();
