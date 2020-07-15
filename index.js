@@ -111,8 +111,8 @@ $(document).on('click', '[data-transition-id]', function() {
           hideAssist();
       }
     } else {
-      resetMetaViewport();
       <!-- 郭
+//      resetMetaViewport();
 //      if (dest == 'V-NEW-3') {
 //        $('#V-NEW-3 ul.thumbnails').empty();
 //        $('#V-NEW-2 .results img').each(function() {
@@ -122,6 +122,7 @@ $(document).on('click', '[data-transition-id]', function() {
 //      } else if (dest == 'V-NEW-1') {
       -->
       if (dest == 'V-NEW-1') {
+        resetMetaViewport();
         if (isPhotoRegistered()) {
           $('.assistCheckWrapper').hide();
         } else {
@@ -244,7 +245,7 @@ $('#takePhoto').click(function() {
     var dest = $(this).data('transition-id');
     $(img).on('load', function() {
         $('#V-NEW-3 .output').append($(img).attr({longdesc:"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++}));
-//        $('#V-NEW-2').closest('section').hide();
+        $('#V-NEW-2').closest('section').hide();
         $('#' + dest).show("slide", { direction: "right"}, 200);
     });
     img.setAttribute('src', dataURL);
