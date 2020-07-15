@@ -1120,12 +1120,19 @@ main h3 {
   top: 6vh;
   left: 0
 }
-
+/*
 #V-NEW-2 .assistWrapper[data-index="4"] {
   width: 70vw;
   height: 55vh;
   top: 6vh;
   left: 15vw
+}
+*/
+#V-NEW-2 .assistWrapper[data-index="4"] {
+  width: 80vw;
+  height: 65vh;
+  top: 6vh;
+  left: 10vw
 }
 
 #V-NEW-2 .assistWrapper[data-index="5"] {
