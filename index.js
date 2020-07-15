@@ -103,9 +103,7 @@ $(document).on('click', '[data-transition-id]', function() {
           hideAssist();
       }
     } else {
-      <!--郭
-//      resetMetaViewport();
-      -->
+      resetMetaViewport();
       if (dest == 'V-NEW-3') {
         <!-- 郭
 //        $('#V-NEW-3 ul.thumbnails').empty();
@@ -114,9 +112,7 @@ $(document).on('click', '[data-transition-id]', function() {
 //          $('#V-NEW-3 ul.thumbnails').append($('<li></li>').append($img));
 //        });
         -->
-        updateMetaViewport();
       } else if (dest == 'V-NEW-1') {
-        resetMetaViewport();
         if (isPhotoRegistered()) {
           $('.assistCheckWrapper').hide();
         } else {
