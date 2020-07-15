@@ -2,24 +2,16 @@
 //var app = new App();
 //var isAssistEnabled;
 //var authKey = localStorage.authKey;
-//
-//// ヘッダー情報取得
-//localStorage.organization = "テスト企業";
-//localStorage.userName = "テストユーザ";
-//if (!localStorage.organization || !localStorage.userName) {
-//    location.href = "login.html";
-//}
-//var organization = localStorage.organization;
-//var userName = localStorage.userName;
-//if (userName.length >10) {
-//    userName = userName.substring(0, 10) + '...';
-//}
-//if (organization.length >16) {
-//    organization = organization.substring(0, 16) + '...';
-//}
-//$(".orgName").html(organization);
-//$(".usrName").html((userName) + '様');
 -->
+
+// ヘッダー情報取得
+localStorage.organization = "テスト";
+localStorage.userName = "共通ヘッダー";
+var organization = localStorage.organization;
+var userName = localStorage.userName;
+$(".orgName").html(organization);
+$(".usrName").html((userName) + '様');
+
 var isAssistEnabled;
 
 //$('.drawer').drawer();
