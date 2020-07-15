@@ -827,7 +827,7 @@ main h3 {
 .btTakePhoto {
   font-weight: bold;
   background-color: #009A5A;
-  box-shadow: 0 .25rem rgba(156, 30, 30, 1)
+  box-shadow: 0 .25rem rgba(16, 98, 10, 1)
 }
 
 .btRegistPhoto {
@@ -920,7 +920,7 @@ main h3 {
   vertical-align: middle;
   background-color: #009A5A;
   border-radius: .5rem;
-  box-shadow: 0 .25rem rgba(0, 154, 90, 1)
+  box-shadow: 0 .25rem rgba(16, 98, 10, 1)
 }
 
 .bottomBt .btBack, .bottomBt .btCancel {
