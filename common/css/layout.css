@@ -291,7 +291,7 @@ a.disabled {
 .drawer-navbar .drawer-navbar-header {
   height: 60px;
   padding: 0;
-  background-color: #0065b1;
+  background-color: #009a5a;
   border: 0
 }
 
@@ -826,7 +826,7 @@ main h3 {
 
 .btTakePhoto {
   font-weight: bold;
-  background-color: #d02828;
+  background-color: #009A5A;
   box-shadow: 0 .25rem rgba(156, 30, 30, 1)
 }
 
@@ -918,9 +918,9 @@ main h3 {
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
-  background-color: #004497;
+  background-color: #009A5A;
   border-radius: .5rem;
-  box-shadow: 0 .25rem rgba(0, 51, 113, 1)
+  box-shadow: 0 .25rem rgba(0, 154, 90, 1)
 }
 
 .bottomBt .btBack, .bottomBt .btCancel {
