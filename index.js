@@ -10,7 +10,7 @@ localStorage.userName = "共通ヘッダー";
 var organization = localStorage.organization;
 var userName = localStorage.userName;
 $(".orgName").html(organization);
-$(".usrName").html((userName) + '様');
+$(".usrName").html((userName));
 
 var isAssistEnabled;
 
