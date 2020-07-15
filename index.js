@@ -112,13 +112,16 @@ $(document).on('click', '[data-transition-id]', function() {
       }
     } else {
       resetMetaViewport();
-      if (dest == 'V-NEW-3') {
+      <!-- 郭
+//      if (dest == 'V-NEW-3') {
 //        $('#V-NEW-3 ul.thumbnails').empty();
 //        $('#V-NEW-2 .results img').each(function() {
 //          var $img = $('<img></img>').attr('src', $(this).attr('src')).attr('data-img-id', $(this).attr('data-img-id'));
 //          $('#V-NEW-3 ul.thumbnails').append($('<li></li>').append($img));
 //        });
-      } else if (dest == 'V-NEW-1') {
+//      } else if (dest == 'V-NEW-1') {
+      -->
+      if (dest == 'V-NEW-1') {
         if (isPhotoRegistered()) {
           $('.assistCheckWrapper').hide();
         } else {
@@ -241,11 +244,17 @@ $('#takePhoto').click(function() {
     var dest = $(this).data('transition-id');
     $(img).on('load', function() {
         $('#V-NEW-3 .output').append($(img).attr({longdesc:"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++}));
-        $('#V-NEW-2').closest('section').hide();
+//        $('#V-NEW-2').closest('section').hide();
         $('#' + dest).show("slide", { direction: "right"}, 200);
     });
     img.setAttribute('src', dataURL);
-//    img.setAttribute('longdesc', "w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size));
+});
+
+$('#V-NEW-3 .btRetake').click(function() {
+    var imgId = $('#V-NEW-3 .output img').attr('data-img-id');
+    $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('img').remove();
+    $('#V-NEW-3').closest('section').hide();
+    $('#V-NEW-2').show("slide", { direction: "right"}, 200);
 });
 
     <!-- 郭
@@ -277,13 +286,6 @@ $('#takePhoto').click(function() {
 //    }
 //});
     -->
-
-$('#V-NEW-3 .btRetake').click(function() {
-    var imgId = $('#V-NEW-3 .output img').attr('data-img-id');
-    $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('img').remove();
-    $('#V-NEW-3').closest('section').hide();
-    $('#V-NEW-2').show("slide", { direction: "right"}, 200);
-});
 
 function updateMetaViewport() {
     $('header').hide();
