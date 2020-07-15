@@ -102,6 +102,7 @@ $(document).on('click', '[data-transition-id]', function() {
       }
     } else {
       resetMetaViewport();
+      <!-- 「撮影」ボタン押下 -->
       if (dest == 'V-NEW-3') {
         <!-- 郭
 //        $('#V-NEW-3 ul.thumbnails').empty();
@@ -110,6 +111,18 @@ $(document).on('click', '[data-transition-id]', function() {
 //          $('#V-NEW-3 ul.thumbnails').append($('<li></li>').append($img));
 //        });
         -->
+        var imgIdIdx = 0;
+        var dataURL = canvas.toDataURL('image/jpeg');
+        var img = document.createElement('img');
+        var blob = base64ToFile(dataURL);
+        var dest = $(this).data('transition-id');
+        $(img).on('load', function() {
+          $('#V-NEW-3 .output').append($(img).attr({longdesc:"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++}));
+          $('#V-NEW-2').closest('section').hide();
+          $('#' + dest).show("slide", { direction: "right"}, 200);
+        });
+        img.setAttribute('src', dataURL);
+      <!-- 「撮影終了」ボタン押下 -->
       } else if (dest == 'V-NEW-1') {
         if (isPhotoRegistered()) {
           $('.assistCheckWrapper').hide();
@@ -213,31 +226,31 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-var imgIdIdx = 0;
-$('#takePhoto').click(function() {
-    var dataURL = canvas.toDataURL('image/jpeg');
-    var img = document.createElement('img');
-    var blob = base64ToFile(dataURL);
-    <!-- 郭
+//var imgIdIdx = 0;
+//$('#takePhoto').click(function() {
+//    var dataURL = canvas.toDataURL('image/jpeg');
+//    var img = document.createElement('img');
+//    var blob = base64ToFile(dataURL);
+//    <!-- 郭
+////    $(img).on('load', function() {
+////        var $result = $('<li></li>');
+////        $('#V-NEW-2 .results ul').prepend($result.append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('data-img-id', imgIdIdx++)));
+////        $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
+////        $('#V-NEW-1 .btViewPhoto').closest('li').css('display', 'block');
+////        if (isAssistEnabled) {
+////            showAssist($('#V-NEW-2 .results ul li').length);
+////        }
+////    });
+////    img.setAttribute('src', dataURL);
+//    -->
+//    var dest = $(this).data('transition-id');
 //    $(img).on('load', function() {
-//        var $result = $('<li></li>');
-//        $('#V-NEW-2 .results ul').prepend($result.append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('data-img-id', imgIdIdx++)));
-//        $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
-//        $('#V-NEW-1 .btViewPhoto').closest('li').css('display', 'block');
-//        if (isAssistEnabled) {
-//            showAssist($('#V-NEW-2 .results ul li').length);
-//        }
+//        $('#V-NEW-3 .output').append($(img).attr({longdesc:"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++}));
+//        $('#V-NEW-2').closest('section').hide();
+//        $('#' + dest).show("slide", { direction: "right"}, 200);
 //    });
 //    img.setAttribute('src', dataURL);
-    -->
-    var dest = $(this).data('transition-id');
-    $(img).on('load', function() {
-        $('#V-NEW-3 .output').append($(img).attr({longdesc:"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++}));
-        $('#V-NEW-2').closest('section').hide();
-        $('#' + dest).show("slide", { direction: "right"}, 200);
-    });
-    img.setAttribute('src', dataURL);
-});
+//});
 
 $('#V-NEW-3 .btRetake').click(function() {
     var imgId = $('#V-NEW-3 .output img').attr('data-img-id');
