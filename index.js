@@ -9,7 +9,7 @@ localStorage.organization = "共通ヘッダー";
 var organization = localStorage.organization;
 $(".orgName").html(organization);
 
-
+var imgIdIdx = 0;
 var isAssistEnabled;
 
 //$('.drawer').drawer();
@@ -52,7 +52,7 @@ $('#assistCheck').closest('.assistCheckWrapper').show();
 -->
 $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
-    <!-- 撮影するボタン押下 -->
+    <!-- 「撮影する」ボタン押下 -->
     if (dest == 'V-NEW-2') {
       if (!video.srcObject) {
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -111,7 +111,6 @@ $(document).on('click', '[data-transition-id]', function() {
 //          $('#V-NEW-3 ul.thumbnails').append($('<li></li>').append($img));
 //        });
         -->
-        var imgIdIdx = 0;
         var dataURL = canvas.toDataURL('image/jpeg');
         var img = document.createElement('img');
         var blob = base64ToFile(dataURL);
@@ -134,6 +133,14 @@ $(document).on('click', '[data-transition-id]', function() {
       $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
     }
     return false;
+});
+
+$('#V-NEW-3 .btRetake').click(function() {
+    var imgId = $('#V-NEW-3 .output img').attr('data-img-id');
+    $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('img').remove();
+    $('#V-NEW-3').closest('section').hide();
+    $('#V-NEW-2').show("slide", { direction: "right"}, 200);
+    updateMetaViewport();
 });
 
 $('#registPhoto').click(function() {
@@ -226,41 +233,24 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
+<!-- 郭
 //var imgIdIdx = 0;
 //$('#takePhoto').click(function() {
 //    var dataURL = canvas.toDataURL('image/jpeg');
 //    var img = document.createElement('img');
 //    var blob = base64ToFile(dataURL);
-//    <!-- 郭
-////    $(img).on('load', function() {
-////        var $result = $('<li></li>');
-////        $('#V-NEW-2 .results ul').prepend($result.append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('data-img-id', imgIdIdx++)));
-////        $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
-////        $('#V-NEW-1 .btViewPhoto').closest('li').css('display', 'block');
-////        if (isAssistEnabled) {
-////            showAssist($('#V-NEW-2 .results ul li').length);
-////        }
-////    });
-////    img.setAttribute('src', dataURL);
-//    -->
-//    var dest = $(this).data('transition-id');
 //    $(img).on('load', function() {
-//        $('#V-NEW-3 .output').append($(img).attr({longdesc:"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++}));
-//        $('#V-NEW-2').closest('section').hide();
-//        $('#' + dest).show("slide", { direction: "right"}, 200);
+//        var $result = $('<li></li>');
+//        $('#V-NEW-2 .results ul').prepend($result.append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('data-img-id', imgIdIdx++)));
+//        $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
+//        $('#V-NEW-1 .btViewPhoto').closest('li').css('display', 'block');
+//        if (isAssistEnabled) {
+//            showAssist($('#V-NEW-2 .results ul li').length);
+//        }
 //    });
 //    img.setAttribute('src', dataURL);
 //});
-
-$('#V-NEW-3 .btRetake').click(function() {
-    var imgId = $('#V-NEW-3 .output img').attr('data-img-id');
-    $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('img').remove();
-    $('#V-NEW-3').closest('section').hide();
-    $('#V-NEW-2').show("slide", { direction: "right"}, 200);
-    updateMetaViewport();
-});
-
-    <!-- 郭
+//
 //$(document).on('click', '#V-NEW-3 .thumbnails img', function() {
 //    $('#V-NEW-4 .thumbnailDetail').empty();
 //    var img = document.createElement('img');
@@ -288,7 +278,7 @@ $('#V-NEW-3 .btRetake').click(function() {
 //        }
 //    }
 //});
-    -->
+-->
 
 function updateMetaViewport() {
     $('header').hide();
