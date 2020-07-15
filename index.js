@@ -244,6 +244,7 @@ $('#V-NEW-3 .btRetake').click(function() {
     $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('img').remove();
     $('#V-NEW-3').closest('section').hide();
     $('#V-NEW-2').show("slide", { direction: "right"}, 200);
+    updateMetaViewport();
 });
 
     <!-- 郭
