@@ -303,13 +303,13 @@ a.disabled {
 
 .drawer-navbar .drawer-logo {
   position: fixed;
-  top: 24px;
+  top: 7px;
   left: 10px;
   width: 69px
 }
 
 .drawer-navbar .drawer-logo img {
-  width: 100px
+  width: 50px
 }
 
 .drawer-navbar .drawer-brand {
