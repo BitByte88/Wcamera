@@ -323,7 +323,7 @@ a.disabled {
   text-decoration: none
 }
 
-.drawer-navbar .drawer-brand .usrName {
+.drawer-navbar .drawer-brand .orgName {
   font-size: 1.43rem;
   font-weight: bold;
   line-height: 2rem
@@ -1450,7 +1450,7 @@ main h3 {
     text-align: left;
     vertical-align: top
   }
-  .drawer-navbar .drawer-brand .usrName {
+  .drawer-navbar .drawer-brand .orgName {
     font-size: 1.43rem;
     font-weight: bold;
     line-height: 2rem

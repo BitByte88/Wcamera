@@ -5,12 +5,10 @@
 -->
 
 // ヘッダー情報取得
-localStorage.organization = "テスト";
-localStorage.userName = "共通ヘッダー";
+localStorage.organization = "共通ヘッダー";
 var organization = localStorage.organization;
-var userName = localStorage.userName;
 $(".orgName").html(organization);
-$(".usrName").html((userName));
+
 
 var isAssistEnabled;
 
