@@ -111,17 +111,19 @@ $(document).on('click', '[data-transition-id]', function() {
           hideAssist();
       }
     } else {
-      <!-- 郭
+      <!--郭
 //      resetMetaViewport();
-//      if (dest == 'V-NEW-3') {
+      -->
+      if (dest == 'V-NEW-3') {
+        <!-- 郭
 //        $('#V-NEW-3 ul.thumbnails').empty();
 //        $('#V-NEW-2 .results img').each(function() {
 //          var $img = $('<img></img>').attr('src', $(this).attr('src')).attr('data-img-id', $(this).attr('data-img-id'));
 //          $('#V-NEW-3 ul.thumbnails').append($('<li></li>').append($img));
 //        });
-//      } else if (dest == 'V-NEW-1') {
-      -->
-      if (dest == 'V-NEW-1') {
+        -->
+        updateMetaViewport();
+      } else if (dest == 'V-NEW-1') {
         resetMetaViewport();
         if (isPhotoRegistered()) {
           $('.assistCheckWrapper').hide();
