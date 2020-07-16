@@ -1,5 +1,4 @@
-
-var app = new App();
+//var app = new App();
 var isAssistEnabled;
 var imgIdIdx = 0;
 <!--郭
