@@ -154,7 +154,23 @@ $('#V-NEW-3 .btRetake').click(function() {
 <!-- 「画像解析」ボタン押下 -->
 $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     app.showLoading('画像分析中');
+    var b64 = $('#V-NEW-3 .output img');
+    var fileName = (new Date()).getTime();
+    saveBase64AsFile(b64, fileName);
+//    $.ajax({
+//        url:
+//    });
 });
+
+function saveBase64AsFile(base64, fileName) {
+    var link = document.createElement("a");
+
+    document.body.appendChild(link); // for Firefox
+
+    link.setAttribute("href", base64);
+    link.setAttribute("download", fileName);
+    link.click();
+}
 
 $('#registPhoto').click(function() {
     var err = [];
@@ -379,3 +395,17 @@ function getTarget (size) {
 
   return { target: null, unit: 'byte' }
 }
+
+(function() {
+    showLoading = function(a) {
+        if ($("#processingModal").length == 0) {
+            var b = '<div id="processingModal"><div><i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><p>&nbsp;</p></div></div>';
+            $("body").append(b)
+        }
+        $("#processingModal").find("p").text(a).end().show()
+    };
+
+    hideLoading = function(a) {
+        $("#processingModal").hide()
+    }
+}());
