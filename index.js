@@ -156,7 +156,7 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     var b64 = $('#V-NEW-3 .output img').attr('src');
     var date = new Date();
     var yyyy = date.getFullYear();
-    var mm = date.getMonth()+1;
+    var mm = Number(date.getMonth())+1;
     var dd = date.getDate();
     var hh = date.getHours();
     var mm = date.getMinutes();
