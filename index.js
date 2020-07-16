@@ -153,7 +153,7 @@ $('#V-NEW-3 .btRetake').click(function() {
 
 <!-- 「画像解析」ボタン押下 -->
 $('#V-NEW-3 .btPhotoAnalysis').click(function() {
-    app.showLoading('画像分析中');
+    showLoading('画像分析中');
     var b64 = $('#V-NEW-3 .output img').attr('src');
     var fileName = (new Date()).getTime();
     saveBase64AsFile(b64, fileName);
