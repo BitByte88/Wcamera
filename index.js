@@ -155,7 +155,14 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     showLoading('画像分析中');
     var b64 = $('#V-NEW-3 .output img').attr('src');
     var date = new Date();
-    var fileName = string(date.getFullYear()) + string((date.getMonth()+1)) + string(date.getDate()) + string(date.getHours()) + string(date.getMinutes()) + string(date.getSeconds()) + string(date.getMilliseconds());
+    var yyyy = date.getFullYear();
+    var mm = date.getMonth()+1;
+    var dd = date.getDate();
+    var hh = date.getHours();
+    var mm = date.getMinutes();
+    var ss = date.getSeconds();
+    var ms = date.getMilliseconds();
+    var fileName = yyyy + mm + dd + hh + mm + ss + ms + '.jpg';
     saveBase64AsFile(b64, fileName);
     hideLoading();
 //    $.ajax({
