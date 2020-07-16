@@ -13,7 +13,9 @@ var imgIdIdx = 0;
 var isAssistEnabled;
 
 //$('.drawer').drawer();
+<!--郭
 //objectFitImages( '.thumbnailList img' );
+-->
 
 $(".iziModal").iziModal();
 
@@ -141,12 +143,18 @@ $(document).on('click', '[data-transition-id]', function() {
     return false;
 });
 
+<!-- 「再撮影」ボタン押下 -->
 $('#V-NEW-3 .btRetake').click(function() {
     var imgId = $('#V-NEW-3 .output img').attr('data-img-id');
     $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('img').remove();
     $('#V-NEW-3').closest('section').hide();
     $('#V-NEW-2').show("slide", { direction: "right"}, 200);
     updateMetaViewport();
+});
+
+<!-- 「画像解析」ボタン押下 -->
+$('#V-NEW-3 .btPhotoAnalysis').click(function() {
+    app.showLoading('画像分析中');
 });
 
 $('#registPhoto').click(function() {

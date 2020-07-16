@@ -21,6 +21,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.logout = function(b) {
         var a = {};
         var c = {
@@ -39,6 +40,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.createAccount = function(c, g, b, e, a, f) {
         var d = {
             service: this.service,
@@ -59,6 +61,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getAccount = function(a) {
         var b = {
             service: this.service,
@@ -74,6 +77,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.updateAccount = function(c, b, g, e, a, f) {
         var d = {
             service: this.service,
@@ -95,6 +99,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.updateAccountPassword = function(a, c, d) {
         var b = {
             service: this.service,
@@ -113,6 +118,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.updateAccountSetting = function(b, a, d) {
         var c = {
             service: this.service,
@@ -131,6 +137,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.deleteAccount = function(b, a) {
         return $.ajax({
             url: this.apiUrl + "account/delete?service=" + this.service + "&appId=" + this.appId + "&authKey=" + b + "&deleteId=" + a,
@@ -139,6 +146,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getAccountList = function(a) {
         var b = {
             service: this.service,
@@ -154,6 +162,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getJobList = function(b, a, d) {
         var c = {
             service: this.service,
@@ -173,6 +182,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getDatasetList = function(a) {
         var b = {
             service: this.service,
@@ -189,6 +199,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.createDataset = function(b, a, d) {
         var c = {
             service: this.service,
@@ -209,6 +220,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.appendImageToDataset = function(d, a, b) {
         var c = {
             service: this.service,
@@ -229,6 +241,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.deleteImageFromDataset = function(d, a, b) {
         var c = {
             service: this.service,
@@ -250,6 +263,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.createJob = function(e, a, c, f, b) {
         var d = {
             service: this.service,
@@ -271,6 +285,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getDataset = function(a, c) {
         var b = {
             service: this.service,
@@ -288,6 +303,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getJobStatus = function(a, b) {
         var c = {
             service: this.service,
@@ -306,6 +322,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getJobOutput = function(a, b) {
         var c = {
             service: this.service,
@@ -324,6 +341,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.executeJob = function(a, b) {
         var c = {
             service: this.service,
@@ -342,6 +360,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.terminateJob = function(a, b) {
         var c = {
             service: this.service,
@@ -360,6 +379,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.updateDatasetName = function(d, a, b) {
         var c = {
             service: this.service,
@@ -379,6 +399,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.updateJobName = function(a, b, c) {
         var d = {
             service: this.service,
@@ -397,6 +418,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.deleteDataset = function(d, b) {
         var a = {};
         var c = {
@@ -416,6 +438,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.deleteJob = function(a, c) {
         var b = {};
         var d = {
@@ -435,6 +458,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.createCampaigncode = function(a, d, b) {
         var c = {
             service: this.service,
@@ -452,6 +476,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getCampaigncodeList = function(a) {
         var b = {
             service: this.service,
@@ -467,6 +492,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getCampaigncode = function(a) {
         var b = {
             service: this.service,
@@ -482,6 +508,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.createDownload = function(b, a, c) {
         var d = {
             service: this.service,
@@ -499,6 +526,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getDownload = function(b, a, c) {
         var d = {
             service: this.service,
@@ -516,6 +544,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.updateDownload = function(b, a, c) {
         var d = {
             service: this.service,
@@ -533,6 +562,7 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.getDownloadCount = function(a) {
         var b = {
             service: this.service,
@@ -548,14 +578,16 @@ var App = function() {
             scriptCharset: "utf-8"
         })
     };
+
     App.prototype.showLoading = function(a) {
-        if ($("#loadingModal").length == 0) {
-            var b = '<div id="loadingModal"><div><i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><p>&nbsp;</p></div></div>';
+        if ($("#processingModal").length == 0) {
+            var b = '<div id="processingModal"><div><i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><p>&nbsp;</p></div></div>';
             $("body").append(b)
         }
-        $("#loadingModal").find("p").text(a).end().show()
+        $("#processingModal").find("p").text(a).end().show()
     };
+
     App.prototype.hideLoading = function(a) {
-        $("#loadingModal").hide()
+        $("#processingModal").hide()
     }
 }());

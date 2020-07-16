@@ -1278,7 +1278,7 @@ main h3 {
   padding: .75rem 4rem
 }
 
-#loadingModal {
+#processingModal {
   display: none;
   position: absolute;
   top: 0;
@@ -1289,12 +1289,12 @@ main h3 {
   background-color: rgba(160, 160, 160, 0.8)
 }
 
-#loadingModal>div {
+#processingModal>div {
   position: relative;
   top: 50%
 }
 
-#loadingModal>div>p {
+#processingModal>div>p {
   margin-top: 20px
 }
 
