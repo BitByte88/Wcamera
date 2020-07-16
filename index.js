@@ -396,16 +396,13 @@ function getTarget (size) {
   return { target: null, unit: 'byte' }
 }
 
-(function() {
-    showLoading = function(a) {
-        if ($("#processingModal").length == 0) {
-            var b = '<div id="processingModal"><div><i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><p>&nbsp;</p></div></div>';
-            $("body").append(b)
-        }
-        $("#processingModal").find("p").text(a).end().show()
-    };
-
-    hideLoading = function(a) {
-        $("#processingModal").hide()
+function showLoading(a) {
+    if ($("#processingModal").length == 0) {
+        var b = '<div id="processingModal"><div><i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><p>&nbsp;</p></div></div>';
+        $("body").append(b);
     }
-}());
+    $("#processingModal").find("p").text(a).end().show();
+}
+function hideLoading(a) {
+    $("#processingModal").hide();
+}
