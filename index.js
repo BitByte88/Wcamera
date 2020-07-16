@@ -174,8 +174,8 @@ function saveBase64AsFile(base64, fileName) {
 
     document.body.appendChild(link); // for Firefox
 
-    link.setAttribute("href", base64);
-    link.setAttribute("download", fileName);
+    link.attr("href", base64);
+    link.attr("download", fileName);
     link.click();
 }
 
