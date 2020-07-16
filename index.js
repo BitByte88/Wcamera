@@ -158,6 +158,7 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     var fileName = timestamp.getFullYear() + (timestamp.getMonth() + 1) + timestamp.getDate()
     + timestamp.getHours() + timestamp.getMinutes() + timestamp.getSeconds() + timestamp..getMilliseconds();
     saveBase64AsFile(b64, fileName);
+    hideLoading();
 //    $.ajax({
 //        url:
 //    });
