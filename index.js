@@ -1,6 +1,8 @@
+
+var app = new App();
+var isAssistEnabled;
+var imgIdIdx = 0;
 <!--郭
-//var app = new App();
-//var isAssistEnabled;
 //var authKey = localStorage.authKey;
 -->
 
@@ -8,9 +10,6 @@
 localStorage.organization = "共通ヘッダー";
 var organization = localStorage.organization;
 $(".orgName").html(organization);
-
-var imgIdIdx = 0;
-var isAssistEnabled;
 
 //$('.drawer').drawer();
 <!--郭
