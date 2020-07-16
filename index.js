@@ -157,23 +157,23 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     var timestamp = new Date();
     var fileName = timestamp.getFullYear() + (timestamp.getMonth() + 1) + timestamp.getDate()
     + timestamp.getHours() + timestamp.getMinutes() + timestamp.getSeconds() + timestamp.getMilliseconds();
-    saveBase64AsFile(b64, fileName);
+//    saveBase64AsFile(b64, fileName);
     hideLoading();
 //    $.ajax({
 //        url:
 //    });
 });
 
-<!-- 画像ファイルテスト用 -->
-function saveBase64AsFile(base64, fileName) {
-    var link = document.createElement("a");
-
-    document.body.appendChild(link); // for Firefox
-
-    link.setAttribute("href", base64);
-    link.setAttribute("download", fileName);
-    link.click();
-}
+//<!-- 画像ファイルテスト用 -->
+//function saveBase64AsFile(base64, fileName) {
+//    var link = document.createElement("a");
+//
+//    document.body.appendChild(link); // for Firefox
+//
+//    link.setAttribute("href", base64);
+//    link.setAttribute("download", fileName);
+//    link.click();
+//}
 
 $('#registPhoto').click(function() {
     var err = [];
