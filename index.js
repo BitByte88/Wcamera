@@ -60,8 +60,8 @@ $(document).on('click', '[data-transition-id]', function() {
             .then(function(stream) {
               video.srcObject = stream;
               video.onloadedmetadata = function() {
-                var ratio = $(document).width() / video.videoWidth;
-                video.width = $(document).width();
+                var ratio = $(window).width() / video.videoWidth;
+                video.width = $(window).width();
                 video.height = video.videoHeight * ratio;
                 canvas.width = video.width;
                 canvas.height = video.height;                
@@ -91,7 +91,10 @@ $(document).on('click', '[data-transition-id]', function() {
 //      $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
       -->
       updateMetaViewport();
-      isAssistEnabled = !isPhotoRegistered() && $('#assistCheck').prop('checked');
+      <!--郭
+//      isAssistEnabled = !isPhotoRegistered() && $('#assistCheck').prop('checked');
+      -->
+      isAssistEnabled = $('#assistCheck').prop('checked');
       if (isAssistEnabled) {
           <!--郭
 //          showAssist(0);
@@ -117,17 +120,19 @@ $(document).on('click', '[data-transition-id]', function() {
         var dest = $(this).data('transition-id');
         $(img).on('load', function() {
           $('#V-NEW-3 .output').append($(img).attr({longdesc:"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++}));
-          $('#V-NEW-2').closest('section').hide();
-          $('#' + dest).show("slide", { direction: "right"}, 200);
+//          $('#V-NEW-2').closest('section').hide();
+//          $('#' + dest).show("slide", { direction: "right"}, 200);
         });
         img.setAttribute('src', dataURL);
       <!-- 「撮影終了」ボタン押下 -->
       } else if (dest == 'V-NEW-1') {
-        if (isPhotoRegistered()) {
-          $('.assistCheckWrapper').hide();
-        } else {
-          $('.assistCheckWrapper').show();
-        }
+        <!-- 郭
+//        if (isPhotoRegistered()) {
+//          $('.assistCheckWrapper').hide();
+//        } else {
+//          $('.assistCheckWrapper').show();
+//        }
+        -->
       }
       $(this).closest('section').hide();
       $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
@@ -301,9 +306,13 @@ function resetMetaViewport() {
     $('header').show();
     $("meta[name='viewport']").attr("content", "width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no");
 }
-function isPhotoRegistered() {
-    return $('#V-NEW-2 .results ul li').length > 0;
-}
+
+<--! 郭
+//function isPhotoRegistered() {
+//    return $('#V-NEW-2 .results ul li').length > 0;
+//}
+-->
+
 function showAssist(i) {
 	<!--郭
 //    if (i < 11) {
