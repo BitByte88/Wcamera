@@ -307,7 +307,7 @@ function resetMetaViewport() {
     $("meta[name='viewport']").attr("content", "width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no");
 }
 
-<--! 郭
+<!-- 郭
 //function isPhotoRegistered() {
 //    return $('#V-NEW-2 .results ul li').length > 0;
 //}
