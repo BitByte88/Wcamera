@@ -156,7 +156,7 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     var b64 = $('#V-NEW-3 .output img').attr('src');
     var timestamp = new Date();
     var fileName = timestamp.getFullYear() + (timestamp.getMonth() + 1) + timestamp.getDate()
-    + timestamp.getHours() + timestamp.getMinutes() + timestamp.getSeconds() + timestamp..getMilliseconds();
+    + timestamp.getHours() + timestamp.getMinutes() + timestamp.getSeconds() + timestamp.getMilliseconds();
     saveBase64AsFile(b64, fileName);
     hideLoading();
 //    $.ajax({
