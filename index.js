@@ -154,15 +154,13 @@ $('#V-NEW-3 .btRetake').click(function() {
 $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     showLoading('画像分析中');
     var b64 = $('#V-NEW-3 .output img').attr('src');
-    var date = new Date();
-    var yyyy = date.getFullYear();
-    var mm = Number(date.getMonth())+1;
-    var dd = date.getDate();
-    var hh = date.getHours();
-    var mm = date.getMinutes();
-    var ss = date.getSeconds();
-    var ms = date.getMilliseconds();
-    var fileName = String(yyyy) + String(mm) + String(dd) + String(hh) + String(mm) + String(ss) + String(ms) + '.jpg';
+    var now = new Date();
+    var fileName = "" + now.getFullYear() + padZero(now.getMonth() + 1) + padZero(now.getDate()) + padZero(now.getHours()) +
+        padZero(now.getMinutes()) + padZero(now.getSeconds()) + ".jpg";
+    function padZero(num) {
+        return (num < 10 ? "0" : "") + num;
+    }
+
     saveBase64AsFile(b64, fileName);
     hideLoading();
 //    $.ajax({
