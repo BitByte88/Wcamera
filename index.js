@@ -13,7 +13,7 @@ var imgIdIdx = 0;
 var isAssistEnabled;
 
 //$('.drawer').drawer();
-objectFitImages( '.thumbnailList img' );
+//objectFitImages( '.thumbnailList img' );
 
 $(".iziModal").iziModal();
 
