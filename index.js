@@ -162,6 +162,7 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
 //    });
 });
 
+<!-- 画像ファイルテスト用 -->
 function saveBase64AsFile(base64, fileName) {
     var link = document.createElement("a");
 
