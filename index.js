@@ -162,7 +162,7 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     var mm = date.getMinutes();
     var ss = date.getSeconds();
     var ms = date.getMilliseconds();
-    var fileName = yyyy + mm + dd + hh + mm + ss + ms + '.jpg';
+    var fileName = string(yyyy) + string(mm) + string(dd) + string(hh) + string(mm) + string(ss) + string(ms) + '.jpg';
     saveBase64AsFile(b64, fileName);
     hideLoading();
 //    $.ajax({
