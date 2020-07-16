@@ -133,6 +133,7 @@ $(document).on('click', '[data-transition-id]', function() {
 //          $('.assistCheckWrapper').show();
 //        }
         -->
+        video.srcObject.getTracks()[0].enabled = false;
       }
       $(this).closest('section').hide();
       $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
