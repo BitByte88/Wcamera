@@ -1,4 +1,5 @@
 //var app = new App();
+var buttonDiv;
 var isAssistEnabled;
 var imgIdIdx = 0;
 var apiUrl = "./api/";
@@ -53,9 +54,10 @@ $('#assistCheck').closest('.assistCheckWrapper').show();
 -->
 $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
-    var buttonDiv = $(this).attr('id');
+
     <!-- 「撮影する」ボタン押下 -->
     if (dest == 'V-NEW-2') {
+      buttonDiv = $(this).attr('id');
       if (!video.srcObject) {
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           navigator.mediaDevices.getUserMedia(medias)
@@ -165,7 +167,7 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     var formData = new FormData();
     formData.append("img", b64);
     formData.append("fileName", fileName);
-    formData.append("angle", XXX);
+    formData.append("angle", buttonDiv);
 //    $.ajax({
 //        url:
 //    });
