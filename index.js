@@ -178,6 +178,8 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
         processData : false,
         contentType : false
     }).done(function(data) {
+        $('#V-NEW-3 ul.error').empty();
+        $('#V-NEW-3 ul.error').hide();
         var jsonParsing = JSON.parse(data);
         alert(jsonParsing);
         hideLoading();
