@@ -15,9 +15,8 @@ $(".orgName").html(organization);
 //$('.drawer').drawer();
 <!--郭
 //objectFitImages( '.thumbnailList img' );
+//$(".iziModal").iziModal();
 -->
-
-$(".iziModal").iziModal();
 
 $('#assistCheck').change(function() {
     localStorage.assistCheck = $('#assistCheck').prop('checked');
