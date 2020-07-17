@@ -164,23 +164,23 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
 //        url:
 //    });
 
-//<!-- 画像ファイルテスト用 -->
-//    saveBase64AsFile(b64, fileName);
+<!-- 画像ファイルテスト用 -->
+    saveBase64AsFile(b64, fileName);
 
 //    hideLoading();
 
 });
 
-//<!-- 画像ファイルテスト用 -->
-//function saveBase64AsFile(base64, fileName) {
-//    var link = document.createElement("a");
-//
-//    document.body.appendChild(link); // for Firefox
-//
-//    link.setAttribute("href", base64);
-//    link.setAttribute("download", fileName);
-//    link.click();
-//}
+<!-- 画像ファイルテスト用 -->
+function saveBase64AsFile(base64, fileName) {
+    var link = document.createElement("a");
+
+    document.body.appendChild(link); // for Firefox
+
+    link.setAttribute("href", base64);
+    link.setAttribute("download", fileName);
+    link.click();
+}
 
 $('#registPhoto').click(function() {
     var err = [];
