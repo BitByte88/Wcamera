@@ -1430,7 +1430,7 @@ main h3 {
   .drawer-navbar {
     height: 60px;
     padding: 0;
-    background-color: #0065b1;
+    background-color: #009a5a;
     border: 0
   }
   .drawer-navbar .drawer-logo {
@@ -1443,7 +1443,7 @@ main h3 {
     vertical-align: top
   }
   .drawer-navbar .drawer-logo img {
-    width: 198px;
+    width: 50px;
     margin-top: 10px;
     vertical-align: top
   }
