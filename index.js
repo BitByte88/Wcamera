@@ -53,7 +53,7 @@ $('#assistCheck').closest('.assistCheckWrapper').show();
 -->
 $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
-    var buttonDiv = $(this).id;
+    var buttonDiv = $(this).attr('id');
     <!-- 「撮影する」ボタン押下 -->
     if (dest == 'V-NEW-2') {
       if (!video.srcObject) {
