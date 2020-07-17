@@ -1438,8 +1438,10 @@ main h3 {
     display: inline-block;
     top: auto;
     left: auto;
+    /*
     width: 138px;
     padding: 0 0 0 30px;
+    */
     vertical-align: top
   }
   .drawer-navbar .drawer-logo img {
