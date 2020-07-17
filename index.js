@@ -1,7 +1,7 @@
 //var app = new App();
 var isAssistEnabled;
 var imgIdIdx = 0;
-var apiUrl = "/api/";
+var apiUrl = "./api/";
 <!--郭
 //var authKey = localStorage.authKey;
 -->
@@ -53,6 +53,7 @@ $('#assistCheck').closest('.assistCheckWrapper').show();
 -->
 $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
+    var buttonDiv = $(this).id;
     <!-- 「撮影する」ボタン押下 -->
     if (dest == 'V-NEW-2') {
       if (!video.srcObject) {
@@ -157,13 +158,17 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     var b64 = $('#V-NEW-3 .output img').attr('src');
     var now = new Date();
     var fileName = "" + now.getFullYear() + padZero(now.getMonth() + 1) + padZero(now.getDate()) + padZero(now.getHours()) +
-        padZero(now.getMinutes()) + padZero(now.getSeconds()) + ".jpg";
+        padZero(now.getMinutes()) + padZero(now.getSeconds()) + padZero(now.getMilliseconds()) + ".jpg";
     function padZero(num) {
         return (num < 10 ? "0" : "") + num;
     }
-//    $.ajax({
-//        url:
-//    });
+    var formData = new FormData();
+    formData.append("img", b64);
+    formData.append("fileName", fileName);
+    formData.append("angle", XXX);
+    $.ajax({
+        url:
+    });
 
 //    <!-- 画像ファイルテスト用 -->
 //    saveBase64AsFile(b64, fileName);
