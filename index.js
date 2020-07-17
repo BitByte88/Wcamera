@@ -155,6 +155,8 @@ $('#V-NEW-3 .btRetake').click(function() {
 
 <!-- 「画像解析」ボタン押下 -->
 $('#V-NEW-3 .btPhotoAnalysis').click(function() {
+    $('#V-NEW-3 ul.error').empty();
+    $('#V-NEW-3 ul.error').hide();
     showLoading('画像分析中、、、');
     var b64 = $('#V-NEW-3 .output img').attr('src');
     var now = new Date();
@@ -179,9 +181,11 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
         alert(jsonParsing);
         hideLoading();
     }).fail(function(XMLHttpRequest, status, error) {
-        alert(status);
-        alert(error);
         hideLoading();
+        $('#V-NEW-3 ul.error').append($('<li></li>').text('撮影ガイドに従い、再撮影してください。'));
+        $('#V-NEW-3 ul.error').show();
+
+
     });
 
 //    <!-- 画像ファイルテスト用 -->
