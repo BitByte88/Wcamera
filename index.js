@@ -167,9 +167,20 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     formData.append("img", b64);
     formData.append("fileName", fileName);
     formData.append("angle", buttonDiv);
-//    $.ajax({
-//        url:
-//    });
+    $.ajax({
+        type : "POST",
+        url  : apiUrl,
+        data : formData,
+        processData : false,
+        contentType : false
+    }).done(function(data, status) {
+        var jsonParsing = JSON.parse(data);
+        alert(status);
+        alert(jsonParsing);
+    }).fail(function(XMLHttpRequest, status, error) {
+        alert(status);
+        alert(error);
+    });
 
 //    <!-- 画像ファイルテスト用 -->
 //    saveBase64AsFile(b64, fileName);
