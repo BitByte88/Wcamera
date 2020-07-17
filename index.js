@@ -152,7 +152,7 @@ $('#V-NEW-3 .btRetake').click(function() {
 
 <!-- 「画像解析」ボタン押下 -->
 $('#V-NEW-3 .btPhotoAnalysis').click(function() {
-    showLoading('画像分析中');
+    showLoading('画像分析中、、、');
     var b64 = $('#V-NEW-3 .output img').attr('src');
     var now = new Date();
     var fileName = "" + now.getFullYear() + padZero(now.getMonth() + 1) + padZero(now.getDate()) + padZero(now.getHours()) +
@@ -166,6 +166,7 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
 
 //<!-- 画像ファイルテスト用 -->
 //    saveBase64AsFile(b64, fileName);
+
 //    hideLoading();
 
 });
