@@ -160,12 +160,14 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     function padZero(num) {
         return (num < 10 ? "0" : "") + num;
     }
-
-//    saveBase64AsFile(b64, fileName);
-    hideLoading();
 //    $.ajax({
 //        url:
 //    });
+
+//<!-- 画像ファイルテスト用 -->
+//    saveBase64AsFile(b64, fileName);
+//    hideLoading();
+
 });
 
 //<!-- 画像ファイルテスト用 -->
