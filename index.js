@@ -3,9 +3,9 @@ var buttonDiv;
 var isAssistEnabled;
 var imgIdIdx = 0;
 var apiUrl = "./api/";
-<!--郭
-//var authKey = localStorage.authKey;
--->
+/* 郭
+var authKey = localStorage.authKey;
+*/
 
 // ヘッダー情報取得
 localStorage.organization = "共通ヘッダー";
@@ -13,10 +13,10 @@ var organization = localStorage.organization;
 $(".orgName").html(organization);
 
 //$('.drawer').drawer();
-<!--郭
-//objectFitImages( '.thumbnailList img' );
-//$(".iziModal").iziModal();
--->
+/* 郭
+objectFitImages( '.thumbnailList img' );
+$(".iziModal").iziModal();
+*/
 
 $('#assistCheck').change(function() {
     localStorage.assistCheck = $('#assistCheck').prop('checked');
@@ -27,34 +27,34 @@ if (localStorage.assistCheck && localStorage.assistCheck == "false") {
     localStorage.assistCheck = "true";
 }
 $('#assistCheck').closest('.assistCheckWrapper').show();
-<!--郭
-//$('#logout').click(function() {
-//    // ログアウトAPI
-//    app.logout(authKey).then(function(res) {
-//        localStorage.removeItem('userName');
-//        localStorage.removeItem('organization');
-//        localStorage.removeItem('targetJobId');
-//        sessionStorage.clear();
-//        location.href = "login.html";
-//    }).catch(function() {
-//        alert("予期しないエラーが発生しました。\nログインからやり直してください。");
-//        localStorage.removeItem('userName');
-//        localStorage.removeItem('organization');
-//        localStorage.removeItem('targetJobId');
-//        localStorage.removeItem('autoLogin');
-//        sessionStorage.clear();
-//        location.href = "login.html";
-//        return false;
-//    }).then(function() {
-//        app.hideLoading();
-//        return false;
-//    });
-//});
--->
+/* 郭
+$('#logout').click(function() {
+    // ログアウトAPI
+    app.logout(authKey).then(function(res) {
+        localStorage.removeItem('userName');
+        localStorage.removeItem('organization');
+        localStorage.removeItem('targetJobId');
+        sessionStorage.clear();
+        location.href = "login.html";
+    }).catch(function() {
+        alert("予期しないエラーが発生しました。\nログインからやり直してください。");
+        localStorage.removeItem('userName');
+        localStorage.removeItem('organization');
+        localStorage.removeItem('targetJobId');
+        localStorage.removeItem('autoLogin');
+        sessionStorage.clear();
+        location.href = "login.html";
+        return false;
+    }).then(function() {
+        app.hideLoading();
+        return false;
+    });
+});
+*/
 $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
 
-    <!-- 「撮影する」ボタン押下 -->
+    /* 「撮影する」ボタン押下 */
     if (dest == 'V-NEW-2') {
       buttonDiv = $(this).attr('id');
       if (!video.srcObject) {
@@ -90,53 +90,52 @@ $(document).on('click', '[data-transition-id]', function() {
         $('#V-NEW-1').closest('section').hide();
         $('#' + dest).show("slide", { direction: "right"}, 200);
       }
-      <!--郭
-//      $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
-      -->
+      /* 郭
+      $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
+      */
       updateMetaViewport();
-      <!--郭
-//      isAssistEnabled = !isPhotoRegistered() && $('#assistCheck').prop('checked');
-      -->
+      /* 郭
+      isAssistEnabled = !isPhotoRegistered() && $('#assistCheck').prop('checked');
+      */
       isAssistEnabled = $('#assistCheck').prop('checked');
       if (isAssistEnabled) {
-          <!--郭
-//          showAssist(0);
-          -->
+          /* 郭
+          showAssist(0);
+          */
           showAssist(4);
       } else {
           hideAssist();
       }
     } else {
       resetMetaViewport();
-      <!-- 「撮影」ボタン押下 -->
+      /* 「撮影」ボタン押下 */
       if (dest == 'V-NEW-3') {
-        <!-- 郭
-//        $('#V-NEW-3 ul.thumbnails').empty();
-//        $('#V-NEW-2 .results img').each(function() {
-//          var $img = $('<img></img>').attr('src', $(this).attr('src')).attr('data-img-id', $(this).attr('data-img-id'));
-//          $('#V-NEW-3 ul.thumbnails').append($('<li></li>').append($img));
-//        });
-        -->
-        var dataURL = canvas.toDataURL('image/jpeg');
+        /* 郭
+        $('#V-NEW-3 ul.thumbnails').empty();
+        $('#V-NEW-2 .results img').each(function() {
+          var $img = $('<img></img>').attr('src', $(this).attr('src')).attr('data-img-id', $(this).attr('data-img-id'));
+          $('#V-NEW-3 ul.thumbnails').append($('<li></li>').append($img));
+        });
+        */
+        var base64 = canvas.toDataURL('image/jpeg');
         var img = document.createElement('img');
-        var blob = base64ToFile(dataURL);
+        var blob = base64ToFile(base64);
         var dest = $(this).data('transition-id');
         $(img).on('load', function() {
           $('#V-NEW-3 .output').append($(img).attr({longdesc:"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++}));
 //          $('#V-NEW-2').closest('section').hide();
 //          $('#' + dest).show("slide", { direction: "right"}, 200);
         });
-        img.setAttribute('src', dataURL);
-      <!-- 「撮影終了」ボタン押下 -->
+        img.setAttribute('src', base64);
+      /* 「撮影終了」ボタン押下 */
       } else if (dest == 'V-NEW-1') {
-        <!-- 郭
-//        if (isPhotoRegistered()) {
-//          $('.assistCheckWrapper').hide();
-//        } else {
-//          $('.assistCheckWrapper').show();
-//        }
-        -->
-//        video.srcObject.getTracks()[0].stop();
+        /* 郭
+        if (isPhotoRegistered()) {
+          $('.assistCheckWrapper').hide();
+        } else {
+          $('.assistCheckWrapper').show();
+        }
+        */
       }
       $(this).closest('section').hide();
       $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
@@ -144,7 +143,7 @@ $(document).on('click', '[data-transition-id]', function() {
     return false;
 });
 
-<!-- 「再撮影」ボタン押下 -->
+/* 「再撮影」ボタン押下 */
 $('#V-NEW-3 .btRetake').click(function() {
     $('#V-NEW-3 ul.error').empty();
     $('#V-NEW-3 ul.error').hide();
@@ -155,20 +154,28 @@ $('#V-NEW-3 .btRetake').click(function() {
     updateMetaViewport();
 });
 
-<!-- 「画像解析」ボタン押下 -->
+/* 「画像解析」ボタン押下 */
 $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     $('#V-NEW-3 ul.error').empty();
     $('#V-NEW-3 ul.error').hide();
     showLoading('画像分析中、、、');
-    var b64 = $('#V-NEW-3 .output img').attr('src');
+    var base64 = $('#V-NEW-3 .output img').attr('src');
+    var blob = base64ToFile(base64);
     var now = new Date();
     var fileName = "" + now.getFullYear() + padZero(now.getMonth() + 1) + padZero(now.getDate()) + padZero(now.getHours()) +
         padZero(now.getMinutes()) + padZero(now.getSeconds()) + padZero(now.getMilliseconds()) + ".jpg";
     function padZero(num) {
         return (num < 10 ? "0" : "") + num;
     }
+
+    /**
+     *  AJAX通信パラメータ
+     *  @param blob 画像
+     *  @param fileName ファイル名
+     *  @param angle 撮影角度
+     */
     var formData = new FormData();
-    formData.append("img", b64);
+    formData.append("blob", blob);
     formData.append("fileName", fileName);
     formData.append("angle", buttonDiv);
     $.ajax({
@@ -191,12 +198,12 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
 
     });
 
-//    <!-- 画像ファイルテスト用 -->
+//    /* 画像ファイルテスト用 */
 //    saveBase64AsFile(b64, fileName);
 
 });
 
-//<!-- 画像ファイルテスト用 -->
+///* 画像ファイルテスト用 */
 //function saveBase64AsFile(base64, fileName) {
 //    var link = document.createElement("a");
 //
@@ -286,7 +293,7 @@ $('#registPhoto').click(function() {
     });
 });
 
-<!--郭  const medias = {audio : false, video : {facingMode : {exact: "environment"}}}, 携帯デバイスのみにする -->
+/*郭  const medias = {audio : false, video : {facingMode : {exact: "environment"}}}, 携帯デバイスのみにする */
 const medias = {audio : false, video : {facingMode : "environment"}},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
@@ -297,52 +304,52 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-<!-- 郭
-//var imgIdIdx = 0;
-//$('#takePhoto').click(function() {
-//    var dataURL = canvas.toDataURL('image/jpeg');
-//    var img = document.createElement('img');
-//    var blob = base64ToFile(dataURL);
-//    $(img).on('load', function() {
-//        var $result = $('<li></li>');
-//        $('#V-NEW-2 .results ul').prepend($result.append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('data-img-id', imgIdIdx++)));
-//        $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
-//        $('#V-NEW-1 .btViewPhoto').closest('li').css('display', 'block');
-//        if (isAssistEnabled) {
-//            showAssist($('#V-NEW-2 .results ul li').length);
-//        }
-//    });
-//    img.setAttribute('src', dataURL);
-//});
-//
-//$(document).on('click', '#V-NEW-3 .thumbnails img', function() {
-//    $('#V-NEW-4 .thumbnailDetail').empty();
-//    var img = document.createElement('img');
-//    var imgId = $(this).attr('data-img-id');
-//    $(img).on('load', function() {
-//        $('#V-NEW-4 .thumbnailDetail').append($(img).attr('data-img-id', imgId));
-//        $('#V-NEW-3').closest('section').hide();
-//        $('#V-NEW-4').show("slide", { direction: "right"}, 200);
-//    });
-//    img.setAttribute('src', $(this).attr('src'));
-//});
-//
-//$('#V-NEW-4 .btRemove').click(function() {
-//    if (confirm('この画像を削除します。よろしいですか？')) {
-//        var imgId = $('#V-NEW-4 .thumbnailDetail img').attr('data-img-id');
-//        $('#V-NEW-2 img[data-img-id=' + imgId + ']').closest('li').remove();
-//        $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('li').remove();
-//        if ($('#V-NEW-3 ul.thumbnails li').length == 0) {
-//            $('#V-NEW-1 .btViewPhoto, #V-NEW-1 .btRegistPhoto').closest('li').css('display', 'none');
-//            $('.btBack[data-transition-id="V-NEW-3"]').attr('data-transition-id', 'V-NEW-1');
-//            $('.btBack[data-transition-id="V-NEW-1"]').click();
-//            $('.btBack[data-transition-id="V-NEW-1"]').attr('data-transition-id', 'V-NEW-3');
-//        } else {
-//            $('.btBack[data-transition-id="V-NEW-3"]').click();
-//        }
-//    }
-//});
--->
+/* 郭
+var imgIdIdx = 0;
+$('#takePhoto').click(function() {
+    var dataURL = canvas.toDataURL('image/jpeg');
+    var img = document.createElement('img');
+    var blob = base64ToFile(dataURL);
+    $(img).on('load', function() {
+        var $result = $('<li></li>');
+        $('#V-NEW-2 .results ul').prepend($result.append($("<p>w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size) + "</p>")).append($(img).attr('data-img-id', imgIdIdx++)));
+        $('#V-NEW-2 .photoNum').text($('#V-NEW-2 .results img').length + '枚').css('display', 'block');
+        $('#V-NEW-1 .btViewPhoto').closest('li').css('display', 'block');
+        if (isAssistEnabled) {
+            showAssist($('#V-NEW-2 .results ul li').length);
+        }
+    });
+    img.setAttribute('src', dataURL);
+});
+
+$(document).on('click', '#V-NEW-3 .thumbnails img', function() {
+    $('#V-NEW-4 .thumbnailDetail').empty();
+    var img = document.createElement('img');
+    var imgId = $(this).attr('data-img-id');
+    $(img).on('load', function() {
+        $('#V-NEW-4 .thumbnailDetail').append($(img).attr('data-img-id', imgId));
+        $('#V-NEW-3').closest('section').hide();
+        $('#V-NEW-4').show("slide", { direction: "right"}, 200);
+    });
+    img.setAttribute('src', $(this).attr('src'));
+});
+
+$('#V-NEW-4 .btRemove').click(function() {
+    if (confirm('この画像を削除します。よろしいですか？')) {
+        var imgId = $('#V-NEW-4 .thumbnailDetail img').attr('data-img-id');
+        $('#V-NEW-2 img[data-img-id=' + imgId + ']').closest('li').remove();
+        $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('li').remove();
+        if ($('#V-NEW-3 ul.thumbnails li').length == 0) {
+            $('#V-NEW-1 .btViewPhoto, #V-NEW-1 .btRegistPhoto').closest('li').css('display', 'none');
+            $('.btBack[data-transition-id="V-NEW-3"]').attr('data-transition-id', 'V-NEW-1');
+            $('.btBack[data-transition-id="V-NEW-1"]').click();
+            $('.btBack[data-transition-id="V-NEW-1"]').attr('data-transition-id', 'V-NEW-3');
+        } else {
+            $('.btBack[data-transition-id="V-NEW-3"]').click();
+        }
+    }
+});
+*/
 
 function updateMetaViewport() {
     $('header').hide();
@@ -366,21 +373,21 @@ function resetMetaViewport() {
     $("meta[name='viewport']").attr("content", "width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no");
 }
 
-<!-- 郭
-//function isPhotoRegistered() {
-//    return $('#V-NEW-2 .results ul li').length > 0;
-//}
--->
+/* 郭
+function isPhotoRegistered() {
+    return $('#V-NEW-2 .results ul li').length > 0;
+}
+*/
 
 function showAssist(i) {
-	<!--郭
-//    if (i < 11) {
-//        $('#V-NEW-2 .assistWrapper span').text((i + 1) + '/11');
-//        $('#V-NEW-2 .assistWrapper').attr('data-index', i).show();
-//    } else {
-//        hideAssist();
-//    }
-    -->
+	/*郭
+    if (i < 11) {
+        $('#V-NEW-2 .assistWrapper span').text((i + 1) + '/11');
+        $('#V-NEW-2 .assistWrapper').attr('data-index', i).show();
+    } else {
+        hideAssist();
+    }
+    */
     $('#V-NEW-2 .assistWrapper').attr('data-index', i).show();
 }
 
