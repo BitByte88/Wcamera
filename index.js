@@ -146,6 +146,8 @@ $(document).on('click', '[data-transition-id]', function() {
 
 <!-- 「再撮影」ボタン押下 -->
 $('#V-NEW-3 .btRetake').click(function() {
+    $('#V-NEW-3 ul.error').empty();
+    $('#V-NEW-3 ul.error').hide();
     var imgId = $('#V-NEW-3 .output img').attr('data-img-id');
     $('#V-NEW-3 img[data-img-id=' + imgId + ']').closest('img').remove();
     $('#V-NEW-3').closest('section').hide();
