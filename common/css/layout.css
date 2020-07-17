@@ -197,17 +197,18 @@ a.disabled {
   padding-left: 1.2rem
 }
 
-.registForm {
+.startUp {
   width: 80vw;
   margin: 0 auto;
   padding: 10px 0 0
 }
 
-.registForm li {
+.startUp li {
   padding: 10px 0 0
 }
 
-.registForm input[type="text"], .registForm input[type="password"], .registForm input[type="number"] {
+/*
+.startUp input[type="text"], .startUp input[type="password"], .startUp input[type="number"] {
   box-sizing: border-box;
   width: 100%;
   height: 2.5rem;
@@ -218,12 +219,13 @@ a.disabled {
   outline: 0
 }
 
-.registForm #marker {
+.startUp #marker {
   width: 20%;
   margin-left: 10px
 }
+*/
 
-.registForm .notice {
+.startUp .notice {
   padding: 10px 0 0;
   font-size: .8rem;
   line-height: 1.3rem;

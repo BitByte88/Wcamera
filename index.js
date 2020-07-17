@@ -1,6 +1,7 @@
 //var app = new App();
 var isAssistEnabled;
 var imgIdIdx = 0;
+var apiUrl = "/api/";
 <!--郭
 //var authKey = localStorage.authKey;
 -->
@@ -62,7 +63,7 @@ $(document).on('click', '[data-transition-id]', function() {
               video.onloadedmetadata = function() {
                 var ratio = $(window).width() / video.videoWidth;
                 video.width = $(window).width();
-                video.height = (video.videoHeight * ratio) - 500;
+                video.height = video.videoHeight * ratio;
                 canvas.width = video.width;
                 canvas.height = video.height;                
                 $('#takePhoto').show();
@@ -164,23 +165,23 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
 //        url:
 //    });
 
-<!-- 画像ファイルテスト用 -->
-    saveBase64AsFile(b64, fileName);
+//    <!-- 画像ファイルテスト用 -->
+//    saveBase64AsFile(b64, fileName);
 
 //    hideLoading();
 
 });
 
-<!-- 画像ファイルテスト用 -->
-function saveBase64AsFile(base64, fileName) {
-    var link = document.createElement("a");
-
-    document.body.appendChild(link); // for Firefox
-
-    link.setAttribute("href", base64);
-    link.setAttribute("download", fileName);
-    link.click();
-}
+//<!-- 画像ファイルテスト用 -->
+//function saveBase64AsFile(base64, fileName) {
+//    var link = document.createElement("a");
+//
+//    document.body.appendChild(link); // for Firefox
+//
+//    link.setAttribute("href", base64);
+//    link.setAttribute("download", fileName);
+//    link.click();
+//}
 
 $('#registPhoto').click(function() {
     var err = [];
