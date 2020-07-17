@@ -175,9 +175,8 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
         data : formData,
         processData : false,
         contentType : false
-    }).done(function(data, status) {
+    }).done(function(data) {
         var jsonParsing = JSON.parse(data);
-        alert(status);
         alert(jsonParsing);
         hideLoading();
     }).fail(function(XMLHttpRequest, status, error) {
