@@ -177,15 +177,15 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
         var jsonParsing = JSON.parse(data);
         alert(status);
         alert(jsonParsing);
+        hideLoading();
     }).fail(function(XMLHttpRequest, status, error) {
         alert(status);
         alert(error);
+        hideLoading();
     });
 
 //    <!-- 画像ファイルテスト用 -->
 //    saveBase64AsFile(b64, fileName);
-
-//    hideLoading();
 
 });
 
