@@ -53,7 +53,7 @@ $('#logout').click(function() {
 */
 $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
-alert("スマホでご利用してください。");
+
     /* 「撮影する」ボタン押下 */
     if (dest == 'V-NEW-2') {
       buttonDiv = $(this).attr('id');
