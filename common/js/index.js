@@ -295,8 +295,8 @@ $('#registPhoto').click(function() {
     });
 });
 
-/*郭  const medias = {audio : false, video : {facingMode : {exact: "environment"}}}, 携帯デバイスのみにする */
-const medias = {audio : false, video : {facingMode : "environment"}},
+const medias = {audio : false, video : {facingMode : {exact: "environment"}}},
+//const medias = {audio : false, video : {facingMode : "environment"}},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
       ctx    = canvas.getContext("2d");
