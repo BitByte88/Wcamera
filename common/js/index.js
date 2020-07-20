@@ -53,7 +53,7 @@ $('#logout').click(function() {
 */
 $(document).on('click', '[data-transition-id]', function() {
     var dest = $(this).data('transition-id');
-
+alert("スマホでご利用してください。");
     /* 「撮影する」ボタン押下 */
     if (dest == 'V-NEW-2') {
       buttonDiv = $(this).attr('id');
@@ -73,7 +73,7 @@ $(document).on('click', '[data-transition-id]', function() {
               $('#V-NEW-1').closest('section').hide();
               $('#' + dest).show("slide", { direction: "right"}, 200);
             }).catch(function(err) {
-              alert(err);
+              alert("スマホでご利用してください。");
               resetMetaViewport();
               $('#V-NEW-2').closest('section').hide();
               $('#V-NEW-1').show();
