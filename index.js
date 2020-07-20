@@ -158,7 +158,9 @@ $('#V-NEW-3 .btRetake').click(function() {
 $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     $('#V-NEW-3 ul.error').empty();
     $('#V-NEW-3 ul.error').hide();
-    showLoading('画像分析中、、、');
+//    showLoading('画像分析中、、、');
+    showLoading('この処理は数秒～数十秒かかることがあります。<br>少々、お待ちくださいませ。');
+
     var base64 = $('#V-NEW-3 .output img').attr('src');
     var blob = base64ToFile(base64);
     var now = new Date();
@@ -443,7 +445,8 @@ function showLoading(a) {
         var b = '<div id="processingModal"><div><i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><p>&nbsp;</p></div></div>';
         $("body").append(b);
     }
-    $("#processingModal").find("p").text(a).end().show();
+//    $("#processingModal").find("p").text(a).end().show();
+    $("#processingModal").find("p").html(a).end().show();
 }
 function hideLoading(a) {
     $("#processingModal").hide();
