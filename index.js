@@ -192,7 +192,7 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
         hideLoading();
     }).fail(function(XMLHttpRequest, status, error) {
         hideLoading();
-        $('#V-NEW-3 ul.error').append($('<li></li>').text('画像分析ができませんでした。rn撮影ガイドに従い、再撮影してください。'));
+        $('#V-NEW-3 ul.error').append($('<li></li>').text('画像分析ができませんでした。<br>撮影ガイドに従い、再撮影してください。'));
         $('#V-NEW-3 ul.error').show();
 
 
