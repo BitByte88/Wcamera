@@ -834,6 +834,7 @@ main h3 {
 
 .qrdiv {
   float: left;
+  display: block;
   margin-top: 10px;
 }
 
