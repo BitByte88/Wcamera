@@ -812,7 +812,7 @@ main h3 {
   border-radius: .5rem
 }
 
-.btTakePhoto, .btViewPhoto, .btRegistPhoto, .btBackPhoto {
+.btTakePhoto, .btViewPhoto, .btRegistPhoto, .btBackPhoto .btReadQr{
   display: block;
   margin-top: 10px;
   padding: .75rem 1rem;
@@ -826,7 +826,7 @@ main h3 {
   box-shadow: 0 .25rem rgba(0, 51, 113, 1)
 }
 
-.btTakePhoto {
+.btTakePhoto .btReadQr{
   font-weight: bold;
   background-color: #009A5A;
   box-shadow: 0 .25rem rgba(16, 98, 10, 1)
