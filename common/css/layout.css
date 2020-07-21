@@ -614,7 +614,7 @@ main h3 {
 }
 
 .pageVisual img {
-  width: 70vw
+  width: 60vw
 }
 
 .info {
@@ -812,7 +812,7 @@ main h3 {
   border-radius: .5rem
 }
 
-.btTakePhoto, .btViewPhoto, .btRegistPhoto, .btBackPhoto, .btReadQr{
+.btTakePhoto, .btViewPhoto, .btRegistPhoto, .btBackPhoto {
   display: block;
   margin-top: 10px;
   padding: .75rem 1rem;
@@ -826,10 +826,14 @@ main h3 {
   box-shadow: 0 .25rem rgba(0, 51, 113, 1)
 }
 
-.btTakePhoto, .btReadQr{
+.btTakePhoto {
   font-weight: bold;
   background-color: #009A5A;
   box-shadow: 0 .25rem rgba(16, 98, 10, 1)
+}
+
+.qrdiv {
+  float: left;
 }
 
 .btRegistPhoto {
