@@ -834,10 +834,10 @@ main h3 {
 
 .qrdiv {
   float: left;
+  margin-top: 10px;
 }
 
 .btReadQr {
-  margin-top: 10px;
   padding: .75rem 1rem;
   color: #fff;
   font-size: 1.5rem;
