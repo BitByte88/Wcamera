@@ -835,7 +835,7 @@ main h3 {
 .qrdiv {
   width: 100%;
   float: left;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .inputQrCode {
@@ -844,7 +844,7 @@ main h3 {
 
 .btReadQr {
   width: 80%;
-  padding: .75rem 1rem;
+  padding: .3rem 2rem;
   color: #fff;
   font-size: 1.5rem;
   text-align: center;
