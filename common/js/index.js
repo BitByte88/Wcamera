@@ -16,9 +16,7 @@ $(".orgName").html(organization);
 /* 郭
 objectFitImages( '.thumbnailList img' );
 $(".iziModal").iziModal();
-*/
 
-/* 郭
 $('#assistCheck').change(function() {
     localStorage.assistCheck = $('#assistCheck').prop('checked');
 });
@@ -28,9 +26,7 @@ if (localStorage.assistCheck && localStorage.assistCheck == "false") {
     localStorage.assistCheck = "true";
 }
 $('#assistCheck').closest('.assistCheckWrapper').show();
-*/
 
-/* 郭
 $('#logout').click(function() {
     // ログアウトAPI
     app.logout(authKey).then(function(res) {
