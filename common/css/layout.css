@@ -834,6 +834,9 @@ main h3 {
 
 .qrdiv {
   float: left;
+    font-weight: bold;
+    background-color: #009A5A;
+    box-shadow: 0 .25rem rgba(16, 98, 10, 1)
 }
 
 .btRegistPhoto {
