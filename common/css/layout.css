@@ -833,17 +833,15 @@ main h3 {
 }
 
 .qrdiv {
-  width: 100%;
+
   float: left;
   margin-top: 20px;
 }
 
-.inputQrCode {
-  width: 20%;
-}
+
 
 .btReadQr {
-  width: 80%;
+
   padding: .3rem 2rem;
   color: #fff;
   font-size: 1.5rem;
