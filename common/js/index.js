@@ -18,6 +18,7 @@ objectFitImages( '.thumbnailList img' );
 $(".iziModal").iziModal();
 */
 
+/* 郭
 $('#assistCheck').change(function() {
     localStorage.assistCheck = $('#assistCheck').prop('checked');
 });
@@ -27,6 +28,9 @@ if (localStorage.assistCheck && localStorage.assistCheck == "false") {
     localStorage.assistCheck = "true";
 }
 $('#assistCheck').closest('.assistCheckWrapper').show();
+*/
+localStorage.assistCheck = "true";
+
 /* 郭
 $('#logout').click(function() {
     // ログアウトAPI
@@ -295,8 +299,8 @@ $('#registPhoto').click(function() {
     });
 });
 
-const medias = {audio : false, video : {facingMode : {exact: "environment"}}},
-//const medias = {audio : false, video : {facingMode : "environment"}},
+//const medias = {audio : false, video : {facingMode : {exact: "environment"}}},
+const medias = {audio : false, video : {facingMode : "environment"}},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
       ctx    = canvas.getContext("2d");
