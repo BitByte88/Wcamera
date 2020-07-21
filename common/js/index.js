@@ -101,7 +101,7 @@ $(document).on('click', '[data-transition-id]', function() {
       /* 郭
       isAssistEnabled = !isPhotoRegistered() && $('#assistCheck').prop('checked');
       */
-      isAssistEnabled = $('#assistCheck').prop('checked');
+      isAssistEnabled = localStorage.assistCheck;
       if (isAssistEnabled) {
           /* 郭
           showAssist(0);
