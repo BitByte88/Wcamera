@@ -1,6 +1,6 @@
 //var app = new App();
 var buttonDiv;
-var isAssistEnabled;
+var isAssistEnabled = "true";
 var imgIdIdx = 0;
 var apiUrl = "./api/";
 /* 郭
@@ -29,7 +29,6 @@ if (localStorage.assistCheck && localStorage.assistCheck == "false") {
 }
 $('#assistCheck').closest('.assistCheckWrapper').show();
 */
-localStorage.assistCheck = "true";
 
 /* 郭
 $('#logout').click(function() {
@@ -101,7 +100,6 @@ $(document).on('click', '[data-transition-id]', function() {
       /* 郭
       isAssistEnabled = !isPhotoRegistered() && $('#assistCheck').prop('checked');
       */
-      isAssistEnabled = localStorage.assistCheck;
       if (isAssistEnabled) {
           /* 郭
           showAssist(0);
