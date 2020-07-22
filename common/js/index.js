@@ -107,7 +107,7 @@ $(document).on('click', '[data-transition-id]', function() {
           hideAssist();
       }
     } else {
-      resetMetaViewport();
+
       /* 「撮影」ボタン押下 */
       if (dest == 'V-NEW-3') {
         /* 郭
@@ -117,6 +117,7 @@ $(document).on('click', '[data-transition-id]', function() {
           $('#V-NEW-3 ul.thumbnails').append($('<li></li>').append($img));
         });
         */
+        resetMetaViewport();
         var base64 = canvas.toDataURL('image/jpeg');
         var img = document.createElement('img');
         var blob = base64ToFile(base64);
@@ -136,6 +137,7 @@ $(document).on('click', '[data-transition-id]', function() {
           $('.assistCheckWrapper').show();
         }
         */
+        resetMetaViewport();
         if(video.srcObject) {
           video.srcObject.getVideoTracks()[0].stop();
           video.srcObject = null;
