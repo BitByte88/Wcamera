@@ -1048,28 +1048,6 @@ main h3 {
   left: 0
 }
 
-#V-NEW-5 {
-  width: 100vw;
-  height: calc(100vh - 60px);
-  top: 0;
-  left: 0;
-  position: relative
-}
-
-#V-NEW-5 .file {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 30px 0;
-  text-align: center;
-  width: 100vw;
-  height: 50px
-}
-
-#V-NEW-5 .file label {
-  display: inline-block
-}
-
 #V-NEW-2 #video {
   position: absolute;
   width: 100vw;
@@ -1213,23 +1191,9 @@ main h3 {
   z-index: 97
 }
 
-#V-NEW-5 .results {
-  position: absolute;
-  top: 110px;
-  width: 100vw;
-  height: calc(100% - 110px - 80px);
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 97
-}
-
 #V-NEW-2 .results>ul {
   overflow: hidden;
   height: 20vw
-}
-
-#V-NEW-5 .results>ul {
-  overflow-y: scroll;
-  height: 100%
 }
 
 #V-NEW-2 .results>ul>li, #V-NEW-5 .results>ul>li {
@@ -1262,16 +1226,6 @@ main h3 {
   z-index: 98
 }
 
-#V-NEW-5 .bottomBt {
-  position: absolute;
-  width: 100vw;
-  height: 80px;
-  left: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 98
-}
-
 #V-NEW-2 .bottomBt li, #V-NEW-3 .bottomBt li {
   padding: 2.67vw
 }
@@ -1280,20 +1234,6 @@ main h3 {
   display: block;
   color: #fff;
   text-align: center
-}
-
-#V-NEW-5 .bottomBt .photoNum {
-  font-size: 1.5rem
-}
-
-#V-NEW-5 .bottomBt>li {
-  padding: 0;
-  text-align: center
-}
-
-#V-NEW-5 .bottomBt a {
-  display: inline-block;
-  padding: .75rem 4rem
 }
 
 #processingModal {
