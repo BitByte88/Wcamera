@@ -371,8 +371,10 @@ function drawQr() {
       drawLineQrCode(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 
       resetMetaViewport();
-      videoQr.srcObject.getVideoTracks()[0].stop();
-      videoQr.srcObject = null;
+      if (videoQr.srcObject) {
+        videoQr.srcObject.getVideoTracks()[0].stop();
+        videoQr.srcObject = null;
+      }
       $('#V-NEW-1 .inputQrCode').val(code.data);
       $('#V-NEW-4').closest('section').hide();
       $('#V-NEW-1').show("slide", { direction: "right"}, 200);
