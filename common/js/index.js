@@ -339,10 +339,10 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
 //});
 
 //const medias = {audio : false, video : {facingMode : {exact: "environment"}}},
-const medias = {audio : false, video : {facingMode : "environment"}},
-      video  = document.getElementById("video"),
-      canvas = document.getElementById("canvas"),
-      ctx    = canvas.getContext("2d");
+//const medias = {audio : false, video : {facingMode : "environment"}},
+//      video  = document.getElementById("video"),
+//      canvas = document.getElementById("canvas"),
+//      ctx    = canvas.getContext("2d");
 const mediasQr = {audio : false, video : {facingMode : "environment"}},
       videoQr  = document.getElementById("videoQr"),
       canvasQr = document.getElementById("canvasQr"),
@@ -367,7 +367,7 @@ function drawQr() {
 
       alert(code.data);
       $('#V-NEW-1 .inputQrCode').innerText = code.data;
-      $(this).closest('section').hide();
+      $('#V-NEW-4').closest('section').hide();
       $('#V-NEW-1').show("slide", { direction: "right"}, 200);
 
       videoQr.srcObject.getVideoTracks()[0].stop();
