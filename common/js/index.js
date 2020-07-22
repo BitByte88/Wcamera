@@ -173,7 +173,6 @@ $(document).on('click', '[data-transition-id]', function() {
               return false;
             });
           requestAnimationFrame(drawQr);
-          timerId = setTimeout(function(){ readQrCode(); }, 1000);
         } else {
           alert("navigator.mediaDevices not supported");
           $('#V-NEW-1').closest('section').hide();
@@ -359,7 +358,7 @@ function draw() {
 function drawQr() {
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
 
-
+    timerId = setTimeout(function(){ readQrCode(); }, 1000);
 //    var code = jsQR(imageData.data, imageData.width, imageData.height, {
 //      inversionAttempts: "dontInvert",
 //    });
@@ -386,7 +385,7 @@ function drawQr() {
 
 function readQrCode() {
   var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
-  var code = jsQR(imageData.data, imageData.width, imageData.height, {
+  code = jsQR(imageData.data, imageData.width, imageData.height, {
     inversionAttempts: "dontInvert",
   });
 }
