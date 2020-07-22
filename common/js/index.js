@@ -347,7 +347,7 @@ function draw() {
 
 function drawQr() {
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
-    var imageData = canvasQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
+    var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
     var code = jsQR(imageData.data, imageData.width, imageData.height, {
       inversionAttempts: "dontInvert",
     });
@@ -367,12 +367,12 @@ function drawQr() {
 }
 
 function drawLineQrCode(begin, end, color) {
-  canvas.beginPath();
-  canvas.moveTo(begin.x, begin.y);
-  canvas.lineTo(end.x, end.y);
-  canvas.lineWidth = 4;
-  canvas.strokeStyle = color;
-  canvas.stroke();
+  ctxQr.beginPath();
+  ctxQr.moveTo(begin.x, begin.y);
+  ctxQr.lineTo(end.x, end.y);
+  ctxQr.lineWidth = 4;
+  ctxQr.strokeStyle = color;
+  ctxQr.stroke();
 }
 /* 郭
 var imgIdIdx = 0;
