@@ -359,11 +359,11 @@ function drawQr() {
     count++;
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
     var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
-//    if (count % 50 == 0) {
+    if (count % 50 == 0) {
       code = jsQR(imageData.data, imageData.width, imageData.height, {
         inversionAttempts: "dontInvert",
       });
-//    }
+    }
     if (code) {
       drawLineQrCode(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
       drawLineQrCode(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
