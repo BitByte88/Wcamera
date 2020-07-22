@@ -107,7 +107,6 @@ $(document).on('click', '[data-transition-id]', function() {
           hideAssist();
       }
     } else {
-
       /* 「撮影」ボタン押下 */
       if (dest == 'V-NEW-3') {
         /* 郭
