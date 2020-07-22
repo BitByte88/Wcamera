@@ -359,11 +359,11 @@ function drawQr() {
     count++;
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
     var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
-    if (count % 50 == 0) {
+//    if (count % 50 == 0) {
       code = jsQR(imageData.data, imageData.width, imageData.height, {
         inversionAttempts: "dontInvert",
       });
-    }
+//    }
     if (code) {
       drawLineQrCode(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
       drawLineQrCode(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
@@ -372,12 +372,11 @@ function drawQr() {
 
 //      setTimeout(function() {}, 500);
       resetMetaViewport();
-      videoQr.srcObject.getVideoTracks()[0].stop();
-      videoQr.srcObject = null;
-
       $('#V-NEW-4').closest('section').hide();
       $('#V-NEW-1 .inputQrCode').val(code.data);
       $('#V-NEW-1').show("slide", { direction: "right"}, 200);
+      videoQr.srcObject.getVideoTracks()[0].stop();
+      videoQr.srcObject = null;
       return;
 
     } else {
