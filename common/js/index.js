@@ -3,8 +3,8 @@ var buttonDiv;
 var isAssistEnabled = "true";
 var imgIdIdx = 0;
 var apiUrl = "./api/";
+var count = 0;
 var code = null;
-var timerId;
 /* 郭
 var authKey = localStorage.authKey;
 */
@@ -356,15 +356,17 @@ function draw() {
 }
 
 function drawQr() {
+    count++;
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
 
-    timerId = setTimeout(function(){ readQrCode(); }, 1000);
-//    var code = jsQR(imageData.data, imageData.width, imageData.height, {
-//      inversionAttempts: "dontInvert",
-//    });
+    if (count % 50 == 0) {
+      code = jsQR(imageData.data, imageData.width, imageData.height, {
+        inversionAttempts: "dontInvert",
+      });
+    }
+
 
     if (code) {
-      clearTimeout(timerId);
       drawLineQrCode(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
       drawLineQrCode(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
       drawLineQrCode(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
