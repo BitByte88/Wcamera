@@ -374,7 +374,7 @@ function drawQr() {
       return;
 
     } else {
-      requestAnimationFrame(drawQr);
+//      requestAnimationFrame(drawQr);
     }
 }
 
