@@ -347,9 +347,33 @@ function draw() {
 
 function drawQr() {
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
+    var imageData = canvasQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
+    var code = jsQR(imageData.data, imageData.width, imageData.height, {
+      inversionAttempts: "dontInvert",
+    });
+    if (code) {
+      drawLineQrCode(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
+      drawLineQrCode(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
+      drawLineQrCode(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
+      drawLineQrCode(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+
+      $('#V-NEW-1 .inputQrCode').innerText = code.data;
+      $(this).closest('section').hide();
+      $('#V-NEW-1').show("slide", { direction: "right"}, 200);
+    } else {
+
+    }
     requestAnimationFrame(drawQr);
 }
 
+function drawLineQrCode(begin, end, color) {
+  canvas.beginPath();
+  canvas.moveTo(begin.x, begin.y);
+  canvas.lineTo(end.x, end.y);
+  canvas.lineWidth = 4;
+  canvas.strokeStyle = color;
+  canvas.stroke();
+}
 /* 郭
 var imgIdIdx = 0;
 $('#takePhoto').click(function() {
