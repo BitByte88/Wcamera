@@ -370,7 +370,8 @@ function drawQr() {
       drawLineQrCode(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLineQrCode(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 
-      setTimeout(function() {}, 500);
+//      setTimeout(function() {}, 500);
+      resetMetaViewport();
       videoQr.srcObject.getVideoTracks()[0].stop();
       videoQr.srcObject = null;
 
