@@ -78,7 +78,7 @@ $(document).on('click', '[data-transition-id]', function() {
               $('#V-NEW-1').show();
               return false;
             });
-          requestAnimationFrame(draw);
+//          requestAnimationFrame(draw);
         } else {
           alert("navigator.mediaDevices not supported");
           $('#V-NEW-1').closest('section').hide();
