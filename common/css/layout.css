@@ -1216,7 +1216,7 @@ main h3 {
   vertical-align: middle
 }
 
-#V-NEW-2 .bottomBt {
+#V-NEW-2 .bottomBt, #V-NEW-4 .bottomBt {
   position: absolute;
   width: 100vw;
   height: 20vw;
@@ -1226,14 +1226,8 @@ main h3 {
   z-index: 98
 }
 
-#V-NEW-2 .bottomBt li, #V-NEW-3 .bottomBt li {
+#V-NEW-2 .bottomBt li, #V-NEW-3 .bottomBt li, #V-NEW-4 .bottomBt li {
   padding: 2.67vw
-}
-
-#V-NEW-2 .bottomBt .photoNum {
-  display: block;
-  color: #fff;
-  text-align: center
 }
 
 #processingModal {
