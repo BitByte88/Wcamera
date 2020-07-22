@@ -375,9 +375,9 @@ function drawQr() {
       videoQr.srcObject = null;
 
       $('#V-NEW-4').closest('section').hide();
-      $('#V-NEW-1 .inputQrCode').innerText = code.data;
+      $('#V-NEW-1 .inputQrCode').val(code.data);
       $('#V-NEW-1').show("slide", { direction: "right"}, 200);
-      return false;
+      return;
 
     } else {
       requestAnimationFrame(drawQr);
