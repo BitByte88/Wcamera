@@ -339,10 +339,10 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
 //});
 
 //const medias = {audio : false, video : {facingMode : {exact: "environment"}}},
-//const medias = {audio : false, video : {facingMode : "environment"}},
-//      video  = document.getElementById("video"),
-//      canvas = document.getElementById("canvas"),
-//      ctx    = canvas.getContext("2d");
+const medias = {audio : false, video : {facingMode : "environment"}},
+      video  = document.getElementById("video"),
+      canvas = document.getElementById("canvas"),
+      ctx    = canvas.getContext("2d");
 const mediasQr = {audio : false, video : {facingMode : "environment"}},
       videoQr  = document.getElementById("videoQr"),
       canvasQr = document.getElementById("canvasQr"),
@@ -356,9 +356,9 @@ function draw() {
 function drawQr() {
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
     var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
-    var code = jsQR(imageData.data, imageData.width, imageData.height, {
-      inversionAttempts: "dontInvert",
-    });
+//    var code = jsQR(imageData.data, imageData.width, imageData.height, {
+//      inversionAttempts: "dontInvert",
+//    });
     if (code) {
       drawLineQrCode(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
       drawLineQrCode(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
