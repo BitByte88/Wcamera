@@ -3,6 +3,7 @@ var buttonDiv;
 var isAssistEnabled = "true";
 var imgIdIdx = 0;
 var apiUrl = "./api/";
+var code = null;
 var timerId;
 /* 郭
 var authKey = localStorage.authKey;
@@ -172,6 +173,7 @@ $(document).on('click', '[data-transition-id]', function() {
               return false;
             });
           requestAnimationFrame(drawQr);
+          timerId = setTimeout(function(){ readQrCode(); }, 1000);
         } else {
           alert("navigator.mediaDevices not supported");
           $('#V-NEW-1').closest('section').hide();
@@ -356,11 +358,11 @@ function draw() {
 
 function drawQr() {
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
-    var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
 
-    var code = jsQR(imageData.data, imageData.width, imageData.height, {
-      inversionAttempts: "dontInvert",
-    });
+
+//    var code = jsQR(imageData.data, imageData.width, imageData.height, {
+//      inversionAttempts: "dontInvert",
+//    });
 
     if (code) {
       clearTimeout(timerId);
@@ -378,16 +380,15 @@ function drawQr() {
       return;
 
     } else {
-//      requestAnimationFrame(drawQr);
-      timerId = setTimeout(function(){ requestAnimationFrame(drawQr); }, 1000);
+      requestAnimationFrame(drawQr);
     }
 }
 
-function readQrCode(imageData) {
+function readQrCode() {
+  var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
   var code = jsQR(imageData.data, imageData.width, imageData.height, {
     inversionAttempts: "dontInvert",
   });
-  return code;
 }
 
 function drawLineQrCode(begin, end, color) {
