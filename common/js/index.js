@@ -125,7 +125,7 @@ $(document).on('click', '[data-transition-id]', function() {
 //          $('#' + dest).show("slide", { direction: "right"}, 200);
         });
         img.setAttribute('src', base64);
-      /* 「撮影終了」ボタン押下 */
+      /* 「撮影終了」、「戻る」ボタン押下 */
       } else if (dest == 'V-NEW-1') {
         /* 郭
         if (isPhotoRegistered()) {
@@ -134,8 +134,13 @@ $(document).on('click', '[data-transition-id]', function() {
           $('.assistCheckWrapper').show();
         }
         */
-        video.srcObject.getVideoTracks()[0].stop();
-        video.srcObject = null;
+        if(video.srcObject) {
+          video.srcObject.getVideoTracks()[0].stop();
+          video.srcObject = null;
+        } else {
+          videoQr.srcObject.getVideoTracks()[0].stop();
+          videoQr.srcObject = null;
+        }
       }
 
       $(this).closest('section').hide();
