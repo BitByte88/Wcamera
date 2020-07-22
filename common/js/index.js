@@ -375,7 +375,7 @@ function drawQr() {
       return;
 
     } else {
-      setTimeout(() => {requestAnimationFrame(drawQr);}, 300);
+      requestAnimationFrame(drawQr);
     }
 }
 
