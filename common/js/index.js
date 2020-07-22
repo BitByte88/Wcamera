@@ -383,12 +383,6 @@ function drawQr() {
     }
 }
 
-function readQrCode() {
-  code = jsQR(imageData.data, imageData.width, imageData.height, {
-    inversionAttempts: "dontInvert",
-  });
-}
-
 function drawLineQrCode(begin, end, color) {
   ctxQr.beginPath();
   ctxQr.moveTo(begin.x, begin.y);
