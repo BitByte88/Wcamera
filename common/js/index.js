@@ -134,8 +134,10 @@ $(document).on('click', '[data-transition-id]', function() {
           $('.assistCheckWrapper').show();
         }
         */
+        video.srcObject.getVideoTracks()[0].stop();
+        video.srcObject = null;
       }
-      video.srcObject.getVideoTracks()[0].stop();
+
       $(this).closest('section').hide();
       $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
     }
