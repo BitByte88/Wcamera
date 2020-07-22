@@ -60,6 +60,7 @@ $(document).on('click', '[data-transition-id]', function() {
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           navigator.mediaDevices.getUserMedia(medias)
             .then(function(stream) {
+            alert(stream.getVideoTracks().length);
               video.srcObject = stream;
               video.onloadedmetadata = function() {
                 var ratio = $(window).width() / video.videoWidth;
@@ -251,84 +252,84 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
 //    link.click();
 //}
 
-$('#registPhoto').click(function() {
-    var err = [];
-    $('ul.error').empty();
-    $('ul.error').hide();
-    var datasetName = $('input[name="name"]').val();
-    if (datasetName.length > 50) {
-        err.push("データセット名は50文字以内で設定してください。");
-    }
-    if ($('#V-NEW-2 .results img').length > 20) {
-        err.push("画像は20枚以内で設定してください。");
-    }
-    if (err.length > 0) {
-      for (var i in err) {
-          $('ul.error').append($('<li></li>').text(err[i]));
-      }
-      $('ul.error').show();
-      return false;
-    }
-
-    app.showLoading('画像を登録中');
-    // データセット新規作成
-    app.createDataset(authKey, datasetName).then(function(res) {
-        var datasetId = res.datasetid;
-        var imgNameIdx = 1;
-        var promises = [];
-        $('#V-NEW-2 .results img').each(function() {
-            // 画像取得
-            var b64 = $(this).attr('src');
-            // データセット更新API(action=append)
-            promises.push(app.appendImageToDataset(datasetId, b64, authKey));
-        });
-        Promise.all(promises).then(function(res) {
-            app.showLoading('3Dデータ変換処理を開始中');
-            var engineType = '';
-            // ジョブ新規作成　datasetId, name, engineType, execution, authKey
-            app.createJob(datasetId, datasetName, engineType, "false", authKey).then(function(res) {
-                // ジョブ更新(type=command, command=execute)
-                app.executeJob(res.jobid, authKey).then(function() {
-                    location.href = "main.html";
-                }).catch(function() {
-                    alert("予期しないエラーが発生しました。\nログインからやり直してください。");
-                    app.hideLoading();
-                    localStorage.removeItem('userName');
-                    localStorage.removeItem('organization');
-                    localStorage.removeItem('targetJobId');
-                    localStorage.removeItem('autoLogin');
-                    sessionStorage.clear();
-                    location.href = "login.html";
-                    return false;
-                });
-            }).catch(function() {
-                alert("予期しないエラーが発生しました。\nログインからやり直してください。");
-                app.hideLoading();
-                localStorage.removeItem('userName');
-                localStorage.removeItem('organization');
-                localStorage.removeItem('targetJobId');
-                localStorage.removeItem('autoLogin');
-                sessionStorage.clear();
-                location.href = "login.html";
-                return false;
-            }).then(function() {
-                app.hideLoading();
-            });
-        }).catch(function() {
-            alert("予期しないエラーが発生しました。");
-            app.hideLoading();
-        });
-    }).catch(function() {
-        alert("予期しないエラーが発生しました。\nログインからやり直してください。");
-        app.hideLoading();
-        localStorage.removeItem('userName');
-        localStorage.removeItem('organization');
-        localStorage.removeItem('targetJobId');
-        localStorage.removeItem('autoLogin');
-        sessionStorage.clear();
-        location.href = "login.html";
-    });
-});
+//$('#registPhoto').click(function() {
+//    var err = [];
+//    $('ul.error').empty();
+//    $('ul.error').hide();
+//    var datasetName = $('input[name="name"]').val();
+//    if (datasetName.length > 50) {
+//        err.push("データセット名は50文字以内で設定してください。");
+//    }
+//    if ($('#V-NEW-2 .results img').length > 20) {
+//        err.push("画像は20枚以内で設定してください。");
+//    }
+//    if (err.length > 0) {
+//      for (var i in err) {
+//          $('ul.error').append($('<li></li>').text(err[i]));
+//      }
+//      $('ul.error').show();
+//      return false;
+//    }
+//
+//    app.showLoading('画像を登録中');
+//    // データセット新規作成
+//    app.createDataset(authKey, datasetName).then(function(res) {
+//        var datasetId = res.datasetid;
+//        var imgNameIdx = 1;
+//        var promises = [];
+//        $('#V-NEW-2 .results img').each(function() {
+//            // 画像取得
+//            var b64 = $(this).attr('src');
+//            // データセット更新API(action=append)
+//            promises.push(app.appendImageToDataset(datasetId, b64, authKey));
+//        });
+//        Promise.all(promises).then(function(res) {
+//            app.showLoading('3Dデータ変換処理を開始中');
+//            var engineType = '';
+//            // ジョブ新規作成　datasetId, name, engineType, execution, authKey
+//            app.createJob(datasetId, datasetName, engineType, "false", authKey).then(function(res) {
+//                // ジョブ更新(type=command, command=execute)
+//                app.executeJob(res.jobid, authKey).then(function() {
+//                    location.href = "main.html";
+//                }).catch(function() {
+//                    alert("予期しないエラーが発生しました。\nログインからやり直してください。");
+//                    app.hideLoading();
+//                    localStorage.removeItem('userName');
+//                    localStorage.removeItem('organization');
+//                    localStorage.removeItem('targetJobId');
+//                    localStorage.removeItem('autoLogin');
+//                    sessionStorage.clear();
+//                    location.href = "login.html";
+//                    return false;
+//                });
+//            }).catch(function() {
+//                alert("予期しないエラーが発生しました。\nログインからやり直してください。");
+//                app.hideLoading();
+//                localStorage.removeItem('userName');
+//                localStorage.removeItem('organization');
+//                localStorage.removeItem('targetJobId');
+//                localStorage.removeItem('autoLogin');
+//                sessionStorage.clear();
+//                location.href = "login.html";
+//                return false;
+//            }).then(function() {
+//                app.hideLoading();
+//            });
+//        }).catch(function() {
+//            alert("予期しないエラーが発生しました。");
+//            app.hideLoading();
+//        });
+//    }).catch(function() {
+//        alert("予期しないエラーが発生しました。\nログインからやり直してください。");
+//        app.hideLoading();
+//        localStorage.removeItem('userName');
+//        localStorage.removeItem('organization');
+//        localStorage.removeItem('targetJobId');
+//        localStorage.removeItem('autoLogin');
+//        sessionStorage.clear();
+//        location.href = "login.html";
+//    });
+//});
 
 //const medias = {audio : false, video : {facingMode : {exact: "environment"}}},
 const medias = {audio : false, video : {facingMode : "environment"}},
