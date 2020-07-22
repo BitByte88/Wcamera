@@ -127,6 +127,9 @@ $(document).on('click', '[data-transition-id]', function() {
 //          $('#' + dest).show("slide", { direction: "right"}, 200);
         });
         img.setAttribute('src', base64);
+        $(this).closest('section').hide();
+        $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
+
       /* 「撮影終了」、「戻る」ボタン押下 */
       } else if (dest == 'V-NEW-1') {
         /* 郭
@@ -144,10 +147,9 @@ $(document).on('click', '[data-transition-id]', function() {
           videoQr.srcObject.getVideoTracks()[0].stop();
           videoQr.srcObject = null;
         }
+        $(this).closest('section').hide();
+        $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
       }
-
-      $(this).closest('section').hide();
-      $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
     }
 
     /* 「QRコード」ボタン押下 */
@@ -371,7 +373,7 @@ function drawQr() {
       drawLineQrCode(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLineQrCode(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 
-      resetMetaViewport();
+//      resetMetaViewport();
       if (videoQr.srcObject) {
         videoQr.srcObject.getVideoTracks()[0].stop();
         videoQr.srcObject = null;
