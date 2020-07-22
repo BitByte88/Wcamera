@@ -60,7 +60,6 @@ $(document).on('click', '[data-transition-id]', function() {
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           navigator.mediaDevices.getUserMedia(medias)
             .then(function(stream) {
-            alert(stream.getVideoTracks().length);
               video.srcObject = stream;
               video.onloadedmetadata = function() {
                 var ratio = $(window).width() / video.videoWidth;
@@ -136,6 +135,7 @@ $(document).on('click', '[data-transition-id]', function() {
         }
         */
       }
+      video.srcObject.getVideoTracks()[0].stop();
       $(this).closest('section').hide();
       $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
     }
