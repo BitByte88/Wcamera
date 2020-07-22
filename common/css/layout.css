@@ -1196,7 +1196,7 @@ main h3 {
   height: 20vw
 }
 
-#V-NEW-2 .results>ul>li, #V-NEW-5 .results>ul>li {
+#V-NEW-2 .results>ul>li {
   position: relative;
   float: left;
   width: 16vw;
@@ -1206,7 +1206,7 @@ main h3 {
   background-color: transparent
 }
 
-#V-NEW-2 .results>ul>li img, #V-NEW-5 .results>ul>li img {
+#V-NEW-2 .results>ul>li img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1230,7 +1230,7 @@ main h3 {
   padding: 2.67vw
 }
 
-#V-NEW-2 .bottomBt .photoNum, #V-NEW-5 .bottomBt .photoNum {
+#V-NEW-2 .bottomBt .photoNum {
   display: block;
   color: #fff;
   text-align: center
