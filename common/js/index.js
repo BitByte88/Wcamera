@@ -365,19 +365,25 @@ function drawQr() {
       drawLineQrCode(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLineQrCode(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 
+      alert(code.data);
       $('#V-NEW-1 .inputQrCode').innerText = code.data;
       $(this).closest('section').hide();
       $('#V-NEW-1').show("slide", { direction: "right"}, 200);
+
+      videoQr.srcObject.getVideoTracks()[0].stop();
+      videoQr.srcObject = null;
       return;
+
+    } else {
+      setTimeout(() => {requestAnimationFrame(drawQr);}, 300);
     }
-    requestAnimationFrame(drawQr);
 }
 
 function drawLineQrCode(begin, end, color) {
   ctxQr.beginPath();
   ctxQr.moveTo(begin.x, begin.y);
   ctxQr.lineTo(end.x, end.y);
-  ctxQr.lineWidth = 10;
+  ctxQr.lineWidth = 12;
   ctxQr.strokeStyle = color;
   ctxQr.stroke();
 }
