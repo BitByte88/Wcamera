@@ -354,12 +354,17 @@ function draw() {
 }
 
 function drawQr() {
+    var code;
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
     var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
-    var code = jsQR(imageData.data, imageData.width, imageData.height, {
-      inversionAttempts: "dontInvert",
-    });
+    timerId = setTimeout(function(){ code = readQrCode(imageData); }, 1000);
+
+//    var code = jsQR(imageData.data, imageData.width, imageData.height, {
+//      inversionAttempts: "dontInvert",
+//    });
+
     if (code) {
+      clearTimeout(timerId);
       drawLineQrCode(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
       drawLineQrCode(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
       drawLineQrCode(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
@@ -374,9 +379,16 @@ function drawQr() {
       return;
 
     } else {
-//      requestAnimationFrame(drawQr);
-      setTimeout(function(){ requestAnimationFrame(drawQr); }, 3000);
+      requestAnimationFrame(drawQr);
+//      setTimeout(function(){ requestAnimationFrame(drawQr); }, 3000);
     }
+}
+
+function readQrCode(imageData) {
+  var code = jsQR(imageData.data, imageData.width, imageData.height, {
+    inversionAttempts: "dontInvert",
+  });
+  return code;
 }
 
 function drawLineQrCode(begin, end, color) {
