@@ -364,21 +364,20 @@ function drawQr() {
         inversionAttempts: "dontInvert",
       });
     }
-
-
     if (code) {
       drawLineQrCode(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
       drawLineQrCode(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
       drawLineQrCode(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLineQrCode(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 
+      setTimeout(function() {}, 500);
+      videoQr.srcObject.getVideoTracks()[0].stop();
+      videoQr.srcObject = null;
+
       $('#V-NEW-4').closest('section').hide();
       $('#V-NEW-1 .inputQrCode').innerText = code.data;
       $('#V-NEW-1').show("slide", { direction: "right"}, 200);
-
-      videoQr.srcObject.getVideoTracks()[0].stop();
-      videoQr.srcObject = null;
-      return;
+      return false;
 
     } else {
       requestAnimationFrame(drawQr);
