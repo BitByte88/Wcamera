@@ -36,10 +36,11 @@ main {
 #V-NEW-2 .bottomBt .photoNum,
 #V-NEW-3,
 #V-NEW-4,
+#V-NEW-4 .bottomBt,
 #V-NEW-1 .assistCheckWrapper {
   display: none;
 }
-#V-NEW-2 .bottomBt a, #V-NEW-2 .bottomBt span {
+#V-NEW-2 .bottomBt a, #V-NEW-4 .bottomBt a {
   font-size: calc(100vw / 16);
 }
 </style>
@@ -123,6 +124,9 @@ main {
     <section id="V-NEW-4">
         <video id="videoQr" autoplay="autoplay" playsinline="playsinline"></video>
         <canvas id="canvasQr"></canvas>
+        <ul class="bottomBt">
+            <li><a href="#" class="btFinish" data-transition-id="V-NEW-1">戻る</a></li>
+        </ul>
     </section>
     <!--郭
     <section id="V-NEW-3" class="thumbnailList">
