@@ -1040,7 +1040,7 @@ main h3 {
   line-height: 1.5em
 }
 
-#V-NEW-2 {
+#V-NEW-2, #V-NEW-4 {
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -1048,7 +1048,7 @@ main h3 {
   left: 0
 }
 
-#V-NEW-2 #video {
+#V-NEW-2 #video, #V-NEW-4 #videoQr {
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -1056,7 +1056,7 @@ main h3 {
   left: 0
 }
 
-#V-NEW-2 #canvas {
+#V-NEW-2 #canvas, #V-NEW-4 #canvasQr {
   position: absolute;
   width: 100vw;
   height: 100vh;
