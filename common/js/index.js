@@ -354,7 +354,7 @@ function draw() {
 }
 
 function drawQr() {
-    var code;
+    var code = false;
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
     var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
     timerId = setTimeout(function(){ code = readQrCode(imageData); }, 1000);
