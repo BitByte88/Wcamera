@@ -368,8 +368,7 @@ function drawQr() {
       $('#V-NEW-1 .inputQrCode').innerText = code.data;
       $(this).closest('section').hide();
       $('#V-NEW-1').show("slide", { direction: "right"}, 200);
-    } else {
-
+      return;
     }
     requestAnimationFrame(drawQr);
 }
@@ -378,7 +377,7 @@ function drawLineQrCode(begin, end, color) {
   ctxQr.beginPath();
   ctxQr.moveTo(begin.x, begin.y);
   ctxQr.lineTo(end.x, end.y);
-  ctxQr.lineWidth = 4;
+  ctxQr.lineWidth = 10;
   ctxQr.strokeStyle = color;
   ctxQr.stroke();
 }
