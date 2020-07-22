@@ -381,6 +381,7 @@ function drawQr() {
       $('#V-NEW-1 .inputQrCode').val(code.data);
       $('#V-NEW-4').closest('section').hide();
       $('#V-NEW-1').show("slide", { direction: "right"}, 200);
+      code = null;
       return;
 
     } else {
