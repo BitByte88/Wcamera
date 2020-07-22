@@ -358,7 +358,7 @@ function draw() {
 function drawQr() {
     count++;
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
-
+    var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
     if (count % 50 == 0) {
       code = jsQR(imageData.data, imageData.width, imageData.height, {
         inversionAttempts: "dontInvert",
@@ -386,7 +386,6 @@ function drawQr() {
 }
 
 function readQrCode() {
-  var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
   code = jsQR(imageData.data, imageData.width, imageData.height, {
     inversionAttempts: "dontInvert",
   });
