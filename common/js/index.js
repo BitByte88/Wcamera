@@ -66,19 +66,19 @@ $(document).on('click', '[data-transition-id]', function() {
                 video.width = $(window).width();
                 video.height = video.videoHeight * ratio;
                 canvas.width = video.width;
-                canvas.height = video.height;                
+                canvas.height = video.height;
                 $('#takePhoto').show();
               };
               $('#V-NEW-1').closest('section').hide();
               $('#' + dest).show("slide", { direction: "right"}, 200);
             }).catch(function(err) {
-              alert("スマホでご利用してください。");
+              alert("スマホでご利用お願います。");
               resetMetaViewport();
               $('#V-NEW-2').closest('section').hide();
               $('#V-NEW-1').show();
               return false;
             });
-//          requestAnimationFrame(draw);
+          requestAnimationFrame(draw);
         } else {
           alert("navigator.mediaDevices not supported");
           $('#V-NEW-1').closest('section').hide();
@@ -137,6 +137,43 @@ $(document).on('click', '[data-transition-id]', function() {
       }
       $(this).closest('section').hide();
       $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
+    }
+
+    /* 「QRコード」ボタン押下 */
+    if (dest == 'V-NEW-4') {
+      if (!videoQr.srcObject) {
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices.getUserMedia(medias)
+            .then(function(stream) {
+              videoQr.srcObject = stream;
+              videoQr.onloadedmetadata = function() {
+                var ratio = $(window).width() / videoQr.videoWidth;
+                videoQr.width = $(window).width();
+                videoQr.height = videoQr.videoHeight * ratio;
+                canvasQr.width = videoQr.width;
+                canvasQr.height = videoQr.height;
+              };
+              $('#V-NEW-1').closest('section').hide();
+              $('#' + dest).show("slide", { direction: "right"}, 200);
+            }).catch(function(err) {
+              alert("スマホでご利用お願います。");
+              resetMetaViewport();
+              $('#V-NEW-4').closest('section').hide();
+              $('#V-NEW-1').show();
+              return false;
+            });
+          requestAnimationFrame(drawQr);
+        } else {
+          alert("navigator.mediaDevices not supported");
+          $('#V-NEW-1').closest('section').hide();
+          $('#' + dest).show("slide", { direction: "right"}, 200);
+          //return false;
+        }
+      } else {
+        $('#V-NEW-1').closest('section').hide();
+        $('#' + dest).show("slide", { direction: "right"}, 200);
+      }
+      updateMetaViewport();
     }
     return false;
 });
@@ -298,10 +335,18 @@ const medias = {audio : false, video : {facingMode : "environment"}},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
       ctx    = canvas.getContext("2d");
+      videoQr  = document.getElementById("videoQr"),
+      canvasQr = document.getElementById("canvasQr"),
+      ctxQr    = canvasQr.getContext("2d");
 
 function draw() {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     requestAnimationFrame(draw);
+}
+
+function drawQr() {
+    ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
+    requestAnimationFrame(drawQr);
 }
 
 /* 郭
