@@ -143,7 +143,7 @@ $(document).on('click', '[data-transition-id]', function() {
     if (dest == 'V-NEW-4') {
       if (!videoQr.srcObject) {
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-          navigator.mediaDevices.getUserMedia(medias)
+          navigator.mediaDevices.getUserMedia(mediasQr)
             .then(function(stream) {
               videoQr.srcObject = stream;
               videoQr.onloadedmetadata = function() {
@@ -335,6 +335,7 @@ const medias = {audio : false, video : {facingMode : "environment"}},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
       ctx    = canvas.getContext("2d");
+const mediasQr = {audio : false, video : {facingMode : "environment"}},
       videoQr  = document.getElementById("videoQr"),
       canvasQr = document.getElementById("canvasQr"),
       ctxQr    = canvasQr.getContext("2d");
