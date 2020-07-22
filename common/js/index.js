@@ -370,7 +370,6 @@ function drawQr() {
       drawLineQrCode(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLineQrCode(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 
-//      setTimeout(function() {}, 500);
       resetMetaViewport();
       $('#V-NEW-4').closest('section').hide();
       $('#V-NEW-1 .inputQrCode').val(code.data);
