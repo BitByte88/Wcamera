@@ -3,6 +3,8 @@ var buttonDiv;
 var isAssistEnabled = "true";
 var imgIdIdx = 0;
 var apiUrl = "./api/";
+var count = 0;
+var code = null;
 /* 郭
 var authKey = localStorage.authKey;
 */
@@ -357,12 +359,14 @@ function draw() {
 }
 
 function drawQr() {
+    count++;
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
     var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
-    var code = jsQR(imageData.data, imageData.width, imageData.height, {
-        inversionAttempts: "dontInvert",
-      });
-
+    if (count % 50 == 0) {
+      code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert",
+        });
+    }
     if (code) {
       drawLineQrCode(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
       drawLineQrCode(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
@@ -381,7 +385,8 @@ function drawQr() {
       return;
 
     } else {
-      setTimeout(() => { requestAnimationFrame(drawQr); }, 3000);
+      requestAnimationFrame(drawQr);
+//      setTimeout(() => { requestAnimationFrame(drawQr); }, 3000);
     }
 }
 
