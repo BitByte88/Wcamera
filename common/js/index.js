@@ -386,7 +386,7 @@ function drawQr() {
 
     } else {
 //      requestAnimationFrame(drawQr);
-      setTimeout(() => { requestAnimationFrame(drawQr); }, 800);
+      setTimeout(() => { requestAnimationFrame(drawQr); }, 1000);
     }
 }
 
