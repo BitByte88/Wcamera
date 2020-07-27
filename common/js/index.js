@@ -382,6 +382,7 @@ function drawQr() {
       $('#V-NEW-4').closest('section').hide();
       $('#V-NEW-1').show("slide", { direction: "right"}, 200);
       code = null;
+      count = 0;
       return;
 
     } else {
