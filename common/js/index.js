@@ -458,8 +458,8 @@ function updateMetaViewport() {
     } else {
         var scale = $(window).width() / width;
         $("meta[name='viewport']").attr("content", "initial-scale=" + scale + ",minimum-scale=" + scale + ",user-scalable=no,shrink-to-fit=yes");
-        $('main').css({'margin-top': '-300px'});
-        $('.assistWrapper').css({'margin-top': '300px'});
+        $('main').css({'margin-top': '-400px'});
+        $('.assistWrapper').css({'margin-top': '400px'});
     }
 }
 function resetMetaViewport() {
