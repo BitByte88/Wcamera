@@ -64,8 +64,8 @@ $(document).on('click', '[data-transition-id]', function() {
             .then(function(stream) {
               video.srcObject = stream;
               video.onloadedmetadata = function() {
-                var vh = $(window).height() * 0.01;
-                $('#V-NEW-2').css("--vh","${vh}px");
+//                var vh = $(window).height() * 0.01;
+//                $('#V-NEW-2').css("--vh","${vh}px");
                 var ratio = $(window).width() / video.videoWidth;
                 video.width = $(window).width();
                 video.height = video.videoHeight * ratio;
@@ -162,8 +162,8 @@ $(document).on('click', '[data-transition-id]', function() {
             .then(function(stream) {
               videoQr.srcObject = stream;
               videoQr.onloadedmetadata = function() {
-                var vh = $(window).height() * 0.01;
-                $('#V-NEW-4').css("--vh","${vh}px");
+//                var vh = $(window).height() * 0.01;
+//                $('#V-NEW-4').css("--vh","${vh}px");
                 var ratio = $(window).width() / videoQr.videoWidth;
                 videoQr.width = $(window).width();
                 videoQr.height = videoQr.videoHeight * ratio;
@@ -457,13 +457,13 @@ function updateMetaViewport() {
     var width = 3000;
     if (isiOS) {
         $("meta[name='viewport']").attr("content", "width=" + width + "px,user-scalable=no,shrink-to-fit=yes");
-        $('main').css({'margin-top': '-500px'});
-        $('.assistWrapper').css({'margin-top': '500px'});
+//        $('main').css({'margin-top': '-500px'});
+//        $('.assistWrapper').css({'margin-top': '500px'});
     } else {
         var scale = $(window).width() / width;
         $("meta[name='viewport']").attr("content", "initial-scale=" + scale + ",minimum-scale=" + scale + ",user-scalable=no,shrink-to-fit=yes");
-        $('main').css({'margin-top': '-200px'});
-        $('.assistWrapper').css({'margin-top': '200px'});
+//        $('main').css({'margin-top': '-200px'});
+//        $('.assistWrapper').css({'margin-top': '200px'});
     }
 }
 function resetMetaViewport() {
