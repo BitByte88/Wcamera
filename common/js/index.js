@@ -66,8 +66,8 @@ $(document).on('click', '[data-transition-id]', function() {
               video.onloadedmetadata = function() {
                 var vh = $(window).height() * 0.01;
                 $('#V-NEW-2').css("--vh","${vh}px");
-                video.width = $('#V-NEW-2').css("width");
-                video.height = $('#V-NEW-2').css("height");
+                video.width = $('#V-NEW-2').css("width")+"px";
+                video.height = $('#V-NEW-2').css("height")+"px";
 //                var ratio = $(window).width() / video.videoWidth;
 //                video.width = $(window).width();
 //                video.height = video.videoHeight * ratio;
