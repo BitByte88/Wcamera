@@ -64,7 +64,7 @@ $(document).on('click', '[data-transition-id]', function() {
             .then(function(stream) {
               video.srcObject = stream;
               video.onloadedmetadata = function() {
-                var vh = $(window).width() * 0.01;
+                var vh = $(window).height() * 0.01;
                 $('#V-NEW-2').css("--vh","${vh}px");
                 var ratio = $(window).width() / video.videoWidth;
                 video.width = $(window).width();
@@ -162,7 +162,7 @@ $(document).on('click', '[data-transition-id]', function() {
             .then(function(stream) {
               videoQr.srcObject = stream;
               videoQr.onloadedmetadata = function() {
-                var vh = $(window).width() * 0.01;
+                var vh = $(window).height() * 0.01;
                 $('#V-NEW-4').css("--vh","${vh}px");
                 var ratio = $(window).width() / videoQr.videoWidth;
                 videoQr.width = $(window).width();
