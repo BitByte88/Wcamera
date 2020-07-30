@@ -1051,7 +1051,7 @@ main h3 {
 #V-NEW-2 #video, #V-NEW-4 #videoQr {
   position: absolute;
   width: 100vw;
-  height: 95%;
+  height: 90%;
   top: 0;
   left: 0
 }
@@ -1059,7 +1059,7 @@ main h3 {
 #V-NEW-2 #canvas, #V-NEW-4 #canvasQr {
   position: absolute;
   width: 100vw;
-  height: 95%;
+  height: 90%;
   top: 0;
   left: 0
 }
@@ -1069,7 +1069,7 @@ main h3 {
   box-sizing: border-box;
   width: 20vw;
   height: 20vw;
-  bottom: 20vw;
+  bottom: 10%;
   left: 40vw;
   background-color: white;
   border: .53vw solid #000000;
@@ -1219,7 +1219,7 @@ main h3 {
 #V-NEW-2 .bottomBt, #V-NEW-4 .bottomBt {
   position: absolute;
   width: 100vw;
-  height: 20vw;
+  height: 10%;
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
@@ -1227,9 +1227,11 @@ main h3 {
   z-index: 98
 }
 
+/*郭
 #V-NEW-2 .bottomBt li, #V-NEW-3 .bottomBt li, #V-NEW-4 .bottomBt li {
   padding: 2.67vw
 }
+*/
 
 #processingModal {
   display: none;
