@@ -64,13 +64,9 @@ $(document).on('click', '[data-transition-id]', function() {
             .then(function(stream) {
               video.srcObject = stream;
               video.onloadedmetadata = function() {
-                var vh = $(window).height() * 0.01;
-                $('#V-NEW-2').css("--vh","${vh}px");
-                video.width = $('#V-NEW-2').css("width")+"px";
-                video.height = $('#V-NEW-2').css("height")+"px";
-//                var ratio = $(window).width() / video.videoWidth;
-//                video.width = $(window).width();
-//                video.height = video.videoHeight * ratio;
+                var ratio = $(window).width() / video.videoWidth;
+                video.width = $(window).width();
+                video.height = video.videoHeight * ratio;
                 canvas.width = video.width;
                 canvas.height = video.height;
                 $('#takePhoto').show();
@@ -164,8 +160,6 @@ $(document).on('click', '[data-transition-id]', function() {
             .then(function(stream) {
               videoQr.srcObject = stream;
               videoQr.onloadedmetadata = function() {
-//                var vh = $(window).height() * 0.01;
-//                $('#V-NEW-4').css("--vh","${vh}px");
                 var ratio = $(window).width() / videoQr.videoWidth;
                 videoQr.width = $(window).width();
                 videoQr.height = videoQr.videoHeight * ratio;
