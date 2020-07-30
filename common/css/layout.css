@@ -1045,7 +1045,7 @@ main h3 {
   width: 100vw;
   height: 95vh;
   /*top: 0;*/
-  bottom: 0;
+  bottom: 0%;
   left: 0
 }
 
