@@ -21,7 +21,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
-  line-height: 1
+  line-height: 1;
+  height: 100%
 }
 
 ol, ul {
@@ -1043,7 +1044,7 @@ main h3 {
 #V-NEW-2, #V-NEW-4 {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0
 }
@@ -1051,7 +1052,7 @@ main h3 {
 #V-NEW-2 #video, #V-NEW-4 #videoQr {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0
 }
@@ -1059,7 +1060,7 @@ main h3 {
 #V-NEW-2 #canvas, #V-NEW-4 #canvasQr {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0
 }
