@@ -453,8 +453,8 @@ function updateMetaViewport() {
     var width = 3000;
     if (isiOS) {
         $("meta[name='viewport']").attr("content", "width=" + width + "px,user-scalable=no,shrink-to-fit=yes");
-        $('main').css({'margin-top': '-480px'});
-        $('.assistWrapper').css({'margin-top': '480px'});
+        $('main').css({'margin-top': '-450px'});
+        $('.assistWrapper').css({'margin-top': '450px'});
     } else {
         var scale = $(window).width() / width;
         $("meta[name='viewport']").attr("content", "initial-scale=" + scale + ",minimum-scale=" + scale + ",user-scalable=no,shrink-to-fit=yes");
