@@ -465,7 +465,8 @@ function updateMetaViewport() {
 function resetMetaViewport() {
     $('main').css({'margin-top': '0'});
     $('header').show();
-    $("meta[name='viewport']").attr("content", "width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no");
+//    $("meta[name='viewport']").attr("content", "width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no");
+    $("meta[name='viewport']").attr("content", "viewport-fit=cover,width=device-width,height=device-height,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no");
 }
 
 /* 郭
