@@ -1044,7 +1044,8 @@ main h3 {
   position: absolute;
   width: 100vw;
   height: 95vh;
-  top: 0;
+  /*top: 0;*/
+  bottom: 0;
   left: 0
 }
 
