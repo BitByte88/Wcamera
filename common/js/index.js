@@ -176,15 +176,6 @@ $(document).on('click', '[data-transition-id]', function() {
               return false;
             });
           requestAnimationFrame(drawQr);
-alert(3);
-resetMetaViewport();
-if (videoQr.srcObject) {
-  videoQr.srcObject.getVideoTracks()[0].stop();
-  videoQr.srcObject = null;
-}
-//$('#V-NEW-1 .inputQrCode').val(code.data);
-$('#V-NEW-4').closest('section').hide();
-$('#V-NEW-1').show("slide", { direction: "right"}, 200);
         } else {
           alert("navigator.mediaDevices not supported");
           $('#V-NEW-1').closest('section').hide();
@@ -197,7 +188,6 @@ $('#V-NEW-1').show("slide", { direction: "right"}, 200);
       }
       updateMetaViewport();
     }
-    alert(4);
     return false;
 });
 
@@ -398,15 +388,14 @@ function drawQr() {
 //      $('#V-NEW-1').show("slide", { direction: "right"}, 200);
       code = null;
       count = 0;
-      return;
-
+//      return;
+      finishLoop();
     } else {
       requestAnimationFrame(drawQr);
 //      setTimeout(() => { requestAnimationFrame(drawQr); }, 3000);
     }
-    alert(1);
 }
-alert(2);
+
 function drawLineQrCode(begin, end, color) {
   ctxQr.beginPath();
   ctxQr.moveTo(begin.x, begin.y);
@@ -415,6 +404,17 @@ function drawLineQrCode(begin, end, color) {
   ctxQr.strokeStyle = color;
   ctxQr.stroke();
 }
+
+function finishLoop() {
+      resetMetaViewport();
+      if (videoQr.srcObject) {
+        videoQr.srcObject.getVideoTracks()[0].stop();
+        videoQr.srcObject = null;
+      }
+      $('#V-NEW-4').closest('section').hide();
+      $('#V-NEW-1').show("slide", { direction: "right"}, 200);
+}
+
 /* 郭
 var imgIdIdx = 0;
 $('#takePhoto').click(function() {
