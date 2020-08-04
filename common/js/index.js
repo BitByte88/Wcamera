@@ -210,7 +210,7 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     showLoading('この処理は数秒～数十秒かかることがあります。<br>少々、お待ちくださいませ。');
 
     var base64 = $('#V-NEW-3 .output img').attr('src');
-    if (!base64) {
+    if (base64) {
         var blob = base64ToFile(base64);
         var now = new Date();
         var fileName = "" + now.getFullYear() + padZero(now.getMonth() + 1) + padZero(now.getDate()) + padZero(now.getHours()) +
@@ -247,8 +247,9 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
             $('#V-NEW-3 ul.error').show();
         });
     } else {
-            $('#V-NEW-3 ul.error').append($('<li></li>').html('鍵画像は必須項目です。。'));
-            $('#V-NEW-3 ul.error').show();
+        hideLoading();
+        $('#V-NEW-3 ul.error').append($('<li></li>').html('鍵画像は必須項目です。'));
+        $('#V-NEW-3 ul.error').show();
     }
 
 
