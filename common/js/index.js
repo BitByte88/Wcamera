@@ -364,10 +364,12 @@ function draw() {
 }
 
 function drawQr() {
+    alert(padZero(now.getSeconds()) + padZero(now.getMilliseconds()));
     count++;
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
     var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
     if (count % 50 == 0) {
+    alert(padZero(now.getSeconds()) + padZero(now.getMilliseconds()));
       code = jsQR(imageData.data, imageData.width, imageData.height, {
           inversionAttempts: "dontInvert",
         });
