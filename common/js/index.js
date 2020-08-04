@@ -176,6 +176,7 @@ $(document).on('click', '[data-transition-id]', function() {
               return false;
             });
           requestAnimationFrame(drawQr);
+alert(3);
 resetMetaViewport();
 if (videoQr.srcObject) {
   videoQr.srcObject.getVideoTracks()[0].stop();
@@ -196,6 +197,7 @@ $('#V-NEW-1').show("slide", { direction: "right"}, 200);
       }
       updateMetaViewport();
     }
+    alert(4);
     return false;
 });
 
@@ -402,8 +404,9 @@ function drawQr() {
       requestAnimationFrame(drawQr);
 //      setTimeout(() => { requestAnimationFrame(drawQr); }, 3000);
     }
+    alert(1);
 }
-
+alert(2);
 function drawLineQrCode(begin, end, color) {
   ctxQr.beginPath();
   ctxQr.moveTo(begin.x, begin.y);
