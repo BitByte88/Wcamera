@@ -368,14 +368,14 @@ function drawQr() {
     function padZero(num) {
         return (num < 10 ? "0" : "") + num;
     }
-    alert(padZero(now.getSeconds()) + padZero(now.getMilliseconds()));
+    alert(padZero(now.getHours()) + padZero(now.getMinutes()) + padZero(now.getSeconds()));
 
 
     count++;
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
     var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
     if (count % 50 == 0) {
-      alert(padZero(now.getSeconds()) + padZero(now.getMilliseconds()));
+      alert(padZero(now.getHours()) + padZero(now.getMinutes()) + padZero(now.getSeconds()));
 
       code = jsQR(imageData.data, imageData.width, imageData.height, {
           inversionAttempts: "dontInvert",
