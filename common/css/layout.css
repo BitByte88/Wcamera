@@ -1130,8 +1130,10 @@ main h3 {
 */
 #V-NEW-2 .assistWrapper[data-index="4"] {
   width: 80vw;
-  height: 50vh;
-  top: 13vh;
+  /*height: 50vh;
+  top: 13vh;*/
+  height: 20vh;
+  top: 25vh;
   left: 10vw
 }
 
