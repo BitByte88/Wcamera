@@ -378,6 +378,7 @@ function drawQr() {
       drawLineQrCode(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLineQrCode(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 
+      $('#V-NEW-1 .inputQrCode').val(code.data);
       code = null;
       count = 0;
 
@@ -386,7 +387,6 @@ function drawQr() {
           videoQr.srcObject.getVideoTracks()[0].stop();
           videoQr.srcObject = null;
       }
-      $('#V-NEW-1 .inputQrCode').val(code.data);
       $('#V-NEW-4').closest('section').hide();
       $('#V-NEW-1').show("slide", { direction: "right"}, 200);
 
