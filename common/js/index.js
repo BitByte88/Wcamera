@@ -364,12 +364,19 @@ function draw() {
 }
 
 function drawQr() {
-    alert(now.getSeconds() + now.getMilliseconds());
+    var now = new Date();
+    function padZero(num) {
+        return (num < 10 ? "0" : "") + num;
+    }
+    alert(padZero(now.getSeconds()) + padZero(now.getMilliseconds()));
+
+
     count++;
     ctxQr.drawImage(videoQr, 0, 0, canvasQr.width, canvasQr.height);
     var imageData = ctxQr.getImageData(0, 0, canvasQr.width, canvasQr.height);
     if (count % 50 == 0) {
-    alert(now.getSeconds() + now.getMilliseconds());
+      alert(padZero(now.getSeconds()) + padZero(now.getMilliseconds()));
+
       code = jsQR(imageData.data, imageData.width, imageData.height, {
           inversionAttempts: "dontInvert",
         });
