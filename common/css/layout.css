@@ -1222,6 +1222,18 @@ main h3 {
   vertical-align: middle
 }
 
+#V-NEW-2 .backGround {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  /*height: 10%;*/
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /*background-color: black;*/
+  z-index: 98
+}
+
 #V-NEW-2 .bottomBt, #V-NEW-4 .bottomBt {
   position: absolute;
   width: 100vw;
