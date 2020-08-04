@@ -1222,7 +1222,7 @@ main h3 {
   vertical-align: middle
 }
 
-#V-NEW-2 .backGround {
+#V-NEW-2 .backGround not(.assistWrapper){
   position: absolute;
   width: 100vw;
   height: 100vh;
