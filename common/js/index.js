@@ -210,43 +210,47 @@ $('#V-NEW-3 .btPhotoAnalysis').click(function() {
     showLoading('この処理は数秒～数十秒かかることがあります。<br>少々、お待ちくださいませ。');
 
     var base64 = $('#V-NEW-3 .output img').attr('src');
-    var blob = base64ToFile(base64);
-    var now = new Date();
-    var fileName = "" + now.getFullYear() + padZero(now.getMonth() + 1) + padZero(now.getDate()) + padZero(now.getHours()) +
-        padZero(now.getMinutes()) + padZero(now.getSeconds()) + padZero(now.getMilliseconds()) + ".jpg";
-    function padZero(num) {
-        return (num < 10 ? "0" : "") + num;
+    if (!base64) {
+        var blob = base64ToFile(base64);
+        var now = new Date();
+        var fileName = "" + now.getFullYear() + padZero(now.getMonth() + 1) + padZero(now.getDate()) + padZero(now.getHours()) +
+            padZero(now.getMinutes()) + padZero(now.getSeconds()) + padZero(now.getMilliseconds()) + ".jpg";
+        function padZero(num) {
+            return (num < 10 ? "0" : "") + num;
+        }
+
+        /**
+         *  AJAX通信パラメータ
+         *  @param blob 画像
+         *  @param fileName ファイル名
+         *  @param angle 撮影角度
+         */
+        var formData = new FormData();
+        formData.append("blob", blob);
+        formData.append("fileName", fileName);
+        formData.append("angle", buttonDiv);
+        $.ajax({
+            type : "POST",
+            url  : apiUrl,
+            data : formData,
+            processData : false,
+            contentType : false
+        }).done(function(data) {
+            $('#V-NEW-3 ul.error').empty();
+            $('#V-NEW-3 ul.error').hide();
+            var jsonParsing = JSON.parse(data);
+            alert(jsonParsing);
+            hideLoading();
+        }).fail(function(XMLHttpRequest, status, error) {
+            hideLoading();
+            $('#V-NEW-3 ul.error').append($('<li></li>').html('画像分析ができませんでした。<br>撮影ガイドに従い、再撮影してください。'));
+            $('#V-NEW-3 ul.error').show();
+        });
+    } else {
+            $('#V-NEW-3 ul.error').append($('<li></li>').html('鍵画像は必須項目です。。'));
+            $('#V-NEW-3 ul.error').show();
     }
 
-    /**
-     *  AJAX通信パラメータ
-     *  @param blob 画像
-     *  @param fileName ファイル名
-     *  @param angle 撮影角度
-     */
-    var formData = new FormData();
-    formData.append("blob", blob);
-    formData.append("fileName", fileName);
-    formData.append("angle", buttonDiv);
-    $.ajax({
-        type : "POST",
-        url  : apiUrl,
-        data : formData,
-        processData : false,
-        contentType : false
-    }).done(function(data) {
-        $('#V-NEW-3 ul.error').empty();
-        $('#V-NEW-3 ul.error').hide();
-        var jsonParsing = JSON.parse(data);
-        alert(jsonParsing);
-        hideLoading();
-    }).fail(function(XMLHttpRequest, status, error) {
-        hideLoading();
-        $('#V-NEW-3 ul.error').append($('<li></li>').html('画像分析ができませんでした。<br>撮影ガイドに従い、再撮影してください。'));
-        $('#V-NEW-3 ul.error').show();
-
-
-    });
 
 //    /* 画像ファイルテスト用 */
 //    saveBase64AsFile(b64, fileName);
