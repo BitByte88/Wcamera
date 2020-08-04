@@ -176,6 +176,14 @@ $(document).on('click', '[data-transition-id]', function() {
               return false;
             });
           requestAnimationFrame(drawQr);
+resetMetaViewport();
+if (videoQr.srcObject) {
+  videoQr.srcObject.getVideoTracks()[0].stop();
+  videoQr.srcObject = null;
+}
+$('#V-NEW-1 .inputQrCode').val(code.data);
+$('#V-NEW-4').closest('section').hide();
+$('#V-NEW-1').show("slide", { direction: "right"}, 200);
         } else {
           alert("navigator.mediaDevices not supported");
           $('#V-NEW-1').closest('section').hide();
@@ -378,14 +386,14 @@ function drawQr() {
       drawLineQrCode(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLineQrCode(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 
-      resetMetaViewport();
-      if (videoQr.srcObject) {
-        videoQr.srcObject.getVideoTracks()[0].stop();
-        videoQr.srcObject = null;
-      }
-      $('#V-NEW-1 .inputQrCode').val(code.data);
-      $('#V-NEW-4').closest('section').hide();
-      $('#V-NEW-1').show("slide", { direction: "right"}, 200);
+//      resetMetaViewport();
+//      if (videoQr.srcObject) {
+//        videoQr.srcObject.getVideoTracks()[0].stop();
+//        videoQr.srcObject = null;
+//      }
+//      $('#V-NEW-1 .inputQrCode').val(code.data);
+//      $('#V-NEW-4').closest('section').hide();
+//      $('#V-NEW-1').show("slide", { direction: "right"}, 200);
       code = null;
       count = 0;
       return;
