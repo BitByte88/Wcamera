@@ -117,21 +117,35 @@ $(document).on('click', '[data-transition-id]', function() {
         });
         */
         resetMetaViewport();
+//        var base64 = canvas.toDataURL('image/jpeg');
+//        var img = document.createElement('img');
+//        var blob = base64ToFile(base64);
+//        var dest = $(this).data('transition-id');
+//        $(img).on('load', function() {
+//          $('#V-NEW-3 .output').append($(img).attr({longdesc:"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++}));
+//        });
 
-        canvasTrim = document.createElement("canvas"),
-        ctxTrim = canvasTrim.getContext("2d");
+
+
         var base64Trim = canvas.toDataURL('image/jpeg');
-        ctxTrim.drawImage(base64Trim, 50, 50, 100, 20, 0, 0, 100, 20);
+        var imgTrim = document.createElement('img');
+        $(imgTrim).on('load', function() {
+          canvasTrim = document.createElement("canvas"),
+          ctxTrim = canvasTrim.getContext("2d");
+          ctxTrim.drawImage(base64Trim, 50, 50, 100, 20, 0, 0, 100, 20);
+        });
 
-        var base64 = canvasTrim.toDataURL('image/jpeg');
+        var base64 = ctxTrim.toDataURL('image/jpeg');
         var img = document.createElement('img');
         var blob = base64ToFile(base64);
         var dest = $(this).data('transition-id');
         $(img).on('load', function() {
           $('#V-NEW-3 .output').append($(img).attr({longdesc:"w/h:" + img.width + "/" + img.height + "," + getByteString(blob.size), 'data-img-id':imgIdIdx++}));
-//          $('#V-NEW-2').closest('section').hide();
-//          $('#' + dest).show("slide", { direction: "right"}, 200);
         });
+
+
+
+
         img.setAttribute('src', base64);
         $(this).closest('section').hide();
         $('#' + $(this).data('transition-id')).show("slide", { direction: "right"}, 200);
