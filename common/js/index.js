@@ -360,7 +360,7 @@ const mediasQr = {audio : false, video : {facingMode : "environment"}},
 
 function draw() {
     //ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    ctx.drawImage(video, 0, 0, 300px, 400px);
+    ctx.drawImage(video, 0, 0, 300, 400);
     requestAnimationFrame(draw);
 }
 
