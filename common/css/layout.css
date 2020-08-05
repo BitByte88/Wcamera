@@ -1129,12 +1129,12 @@ main h3 {
 }
 */
 #V-NEW-2 .assistWrapper[data-index="4"] {
-  width: 80vw;
+  width: 90vw;
   /*height: 50vh;
   top: 13vh;*/
   height: 20vh;
   top: 25vh;
-  left: 10vw
+  left: 5vw
 }
 
 #V-NEW-2 .assistWrapper[data-index="5"] {
