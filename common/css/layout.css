@@ -1138,10 +1138,14 @@ main h3 {
 }
 
 #V-NEW-2 .backGround[data-index="5"] {
-  width: 70vw;
+  /*width: 70vw;
   height: 55vh;
   top: 6vh;
-  left: 30vw
+  left: 30vw*/
+  width: 100vw;
+  height: 100vh;
+  top: 0vh;
+  left: 0vw
 }
 
 #V-NEW-2 .assistWrapper[data-index="6"] {
