@@ -1137,7 +1137,7 @@ main h3 {
   left: 5vw
 }
 
-#V-NEW-2 .backGround[data-index="5"] {
+#V-NEW-2 .backGround[data-index="5"] :not(.assistWrapper[data-index="4"]){
   /*width: 70vw;
   height: 55vh;
   top: 6vh;
@@ -1145,7 +1145,8 @@ main h3 {
   width: 100vw;
   height: 100vh;
   top: 0vh;
-  left: 0vw
+  left: 0vw;
+  background-color: rgba(0,0,0,0.5)
 }
 
 #V-NEW-2 .assistWrapper[data-index="6"] {
