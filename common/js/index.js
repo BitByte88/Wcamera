@@ -118,10 +118,12 @@ $(document).on('click', '[data-transition-id]', function() {
         */
         resetMetaViewport();
 
+        canvasTrim = document.createElement("canvas"),
+        ctxTrim = canvasTrim.getContext("2d");
         var base64Trim = canvas.toDataURL('image/jpeg');
-        ctx.drawImage(base64Trim, 50, 50, 100, 20, 0, 0, 100, 20);
+        ctxTrim.drawImage(base64Trim, 50, 50, 100, 20, 0, 0, 100, 20);
 
-        var base64 = canvas.toDataURL('image/jpeg');
+        var base64 = canvasTrim.toDataURL('image/jpeg');
         var img = document.createElement('img');
         var blob = base64ToFile(base64);
         var dest = $(this).data('transition-id');
