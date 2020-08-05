@@ -1081,7 +1081,7 @@ main h3 {
   z-index: 99
 }
 
-#V-NEW-2 .assistWrapper {
+#V-NEW-2 .assistWrapper, #V-NEW-2 .backGround {
   display: none;
   position: absolute;
   box-sizing: border-box;

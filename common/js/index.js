@@ -463,11 +463,13 @@ function updateMetaViewport() {
         $("meta[name='viewport']").attr("content", "width=" + width + "px,user-scalable=no,shrink-to-fit=yes");
         $('main').css({'margin-top': '-450px'});
         $('.assistWrapper').css({'margin-top': '450px'});
+        $('.backGround').css({'margin-top': '450px'});
     } else {
         var scale = $(window).width() / width;
         $("meta[name='viewport']").attr("content", "initial-scale=" + scale + ",minimum-scale=" + scale + ",user-scalable=no,shrink-to-fit=yes");
         $('main').css({'margin-top': '-450px'});
         $('.assistWrapper').css({'margin-top': '450px'});
+        $('.backGround').css({'margin-top': '450px'});
     }
 }
 function resetMetaViewport() {
@@ -492,11 +494,14 @@ function showAssist(i) {
     }
     */
     $('#V-NEW-2 .assistWrapper').attr('data-index', i).show();
+    $('#V-NEW-2 .backGround').attr('data-index', 5).show();
 }
 
 function hideAssist() {
     $('#V-NEW-2 .assistWrapper').removeAttr('data-index');
     $('#V-NEW-2 .assistWrapper').hide();
+    $('#V-NEW-2 .backGround').removeAttr('data-index');
+    $('#V-NEW-2 .backGround').hide();
 }
 
 function base64ToFile(data) {
