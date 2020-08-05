@@ -359,7 +359,8 @@ const mediasQr = {audio : false, video : {facingMode : "environment"}},
       ctxQr    = canvasQr.getContext("2d");
 
 function draw() {
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    //ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(video, 0, 0, 300px, 400px);
     requestAnimationFrame(draw);
 }
 
