@@ -1092,7 +1092,7 @@ main h3 {
   z-index: 98;
   pointer-events: none
 }
-
+/*
 #V-NEW-2 .backGround {
   display: none;
   position: absolute;
@@ -1100,7 +1100,7 @@ main h3 {
   z-index: 98;
   pointer-events: none
 }
-
+*/
 #V-NEW-2 .assistWrapper[data-index="0"] {
   width: 70vw;
   height: 55vh;
@@ -1145,16 +1145,16 @@ main h3 {
   left: 5vw
 }
 
-#V-NEW-2 .backGround[data-index="5"] {
-  /*width: 70vw;
+#V-NEW-2 .assistWrapper[data-index="5"] {
+  width: 70vw;
   height: 55vh;
   top: 6vh;
-  left: 30vw*/
-  width: 100vw;
+  left: 30vw
+  /*width: 100vw;
   height: 100vh;
   top: 0vh;
   left: 0vw;
-  background-color: rgba(0,0,0,0.5)
+  background-color: rgba(0,0,0,0.5)*/
 }
 
 #V-NEW-2 .assistWrapper[data-index="6"] {
