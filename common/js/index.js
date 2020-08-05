@@ -117,7 +117,10 @@ $(document).on('click', '[data-transition-id]', function() {
         });
         */
         resetMetaViewport();
-        ctx.drawImage(video, 50, 50, 100, 20, 0, 0, 100, 20);
+
+        var base64Trim = canvas.toDataURL('image/jpeg');
+        ctx.drawImage(base64Trim, 50, 50, 100, 20, 0, 0, 100, 20);
+
         var base64 = canvas.toDataURL('image/jpeg');
         var img = document.createElement('img');
         var blob = base64ToFile(base64);
