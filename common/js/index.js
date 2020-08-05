@@ -129,9 +129,10 @@ $(document).on('click', '[data-transition-id]', function() {
 
         var base64Trim = canvas.toDataURL('image/jpeg');
         var imgTrim = document.createElement('img');
+      canvasTrim = document.createElement("canvas");
+      ctxTrim = canvasTrim.getContext("2d");
         $(imgTrim).on('load', function() {
-          canvasTrim = document.createElement("canvas"),
-          ctxTrim = canvasTrim.getContext("2d");
+
           ctxTrim.drawImage(base64Trim, 50, 50, 100, 20, 0, 0, 100, 20);
         });
 
