@@ -492,14 +492,14 @@ function showAssist(i) {
     }
     */
     $('#V-NEW-2 .assistWrapper').attr('data-index', i).show();
-    $('#V-NEW-2 .backGround').attr('data-index', 5).show();
+//    $('#V-NEW-2 .backGround').attr('data-index', 5).show();
 }
 
 function hideAssist() {
     $('#V-NEW-2 .assistWrapper').removeAttr('data-index');
     $('#V-NEW-2 .assistWrapper').hide();
-    $('#V-NEW-2 .backGround').removeAttr('data-index');
-    $('#V-NEW-2 .backGround').hide();
+//    $('#V-NEW-2 .backGround').removeAttr('data-index');
+//    $('#V-NEW-2 .backGround').hide();
 }
 
 function base64ToFile(data) {
