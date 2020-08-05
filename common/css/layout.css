@@ -1081,7 +1081,7 @@ main h3 {
   z-index: 99
 }
 
-#V-NEW-2 .assistWrapper, #V-NEW-2 .backGround {
+#V-NEW-2 .assistWrapper {
   display: none;
   position: absolute;
   box-sizing: border-box;
@@ -1089,6 +1089,14 @@ main h3 {
   border: 1vw solid yellow;
    */
   border: 1vw dashed white;
+  z-index: 98;
+  pointer-events: none
+}
+
+#V-NEW-2 .backGround {
+  display: none;
+  position: absolute;
+  box-sizing: border-box;
   z-index: 98;
   pointer-events: none
 }
