@@ -117,6 +117,7 @@ $(document).on('click', '[data-transition-id]', function() {
         });
         */
         resetMetaViewport();
+        ctx.drawImage(video, 50, 50, 100, 20, 0, 0, 100, 20);
         var base64 = canvas.toDataURL('image/jpeg');
         var img = document.createElement('img');
         var blob = base64ToFile(base64);
@@ -359,8 +360,7 @@ const mediasQr = {audio : false, video : {facingMode : "environment"}},
       ctxQr    = canvasQr.getContext("2d");
 
 function draw() {
-    //ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    ctx.drawImage(video, 0, 0, 300, 400);
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     requestAnimationFrame(draw);
 }
 
